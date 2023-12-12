@@ -6,7 +6,7 @@
     <title></title>
   </head>
   <body>
-    <h1 style="text-align: center"></h1>
+    
     <div
       class="box"
       style="
@@ -35,8 +35,8 @@
 
       <pre
         style="
-          width: 350px;
-          height: 40px;
+          width: 400px;
+          height: 400px;
           border: 1px solid black;
           display: flex;
           align-items: center;
@@ -44,26 +44,21 @@
         "
       ><code id="garalt" style="font-size: 30px;">Result</code></pre>
     </div>
+
     <script>
 
 
     function doSomething() {
-
         const input = document.getElementById("orolt").value;
         const outputElement = document.getElementById("garalt");
+        let result = "";
         
-        if (input.length===3){
-            let digit1 = input[0];
-            let digit2 = input[1];
-            let digit3 = input[2];
+        for (let i=0; i<=input.length; i++){
+            result="*";
             
-            let result = digit1+digit2+digit3;
-            outputElement.innerText = result;
-        }else{
-            outputElement.innerText = "Enter only three digits";
         }
-    
-       
+        outputElement.innerText = result;
+         
     }
     </script>
   </body>
