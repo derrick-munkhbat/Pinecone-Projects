@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<body>
+    <h1 style="text-align: center;"></h1>
+    <div class="box" style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
+        <div class="is-flex mb-4">
+            <input id="orolt1" class="input is-large1" type="text" placeholder="Enter a number" style="width: 200px; height: 30px;"/>
+            <button class="button is-primary is-large" style="background-color: aquamarine; width: 100px; height: 40px;" onclick="doSomething();">Calculate</button>
+        </div>
+
+        <pre style="width: 350px; height: 40px; border: 1px solid black; display: flex; align-items: center; justify-content: center;"><code id="garalt" style="font-size: 15px;">Result</code></pre>
+
+    </div>
+    <script>
+
+function doSomething() {
+    const orolt1Element = document.getElementById("orolt1"); // Element-ee buhleer n avah
+    const orolt1Text = orolt1Element.value; // Element-eesee utgaa avah
+    const orolt1Number = Number(orolt1Text); // Utgaa too ruu horvuuleh
+    let result="";  
+
+    if(orolt1Number<0 || orolt1Number> 100){
+        result="Enter valid number";
+    }else if (orolt1Number<=100 && orolt1Number>=90){
+        result="A";
+    }else if (orolt1Number<=89 && orolt1Number>=80){
+        result="B";
+    }else if (orolt1Number<=79 && orolt1Number>=70){
+        result="C";
+    }else if (orolt1Number<=690 && orolt1Number>=60){
+        result="D";
+    }else {
+        result="F";
+    }
+        
+
+
+    }
+    document.getElementById("garalt").innerText = result;
+    </script>
+</body>
+</html>
+

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+  </head>
+  <body>
+    <div
+      class="box"
+      style="
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      "
+    >
+      <div class="is-flex mb-4">
+        <input
+          id="orolt"
+          class="input is-large"
+          type="text"
+          placeholder="Enter a number"
+          style="width: 200px; height: 30px"
+        />
+        <button
+          class="button is-primary is-large"
+          style="background-color: aquamarine; width: 100px; height: 40px"
+          onclick="doSomething();"
+        >
+          Calculate
+        </button>
+      </div>
+
+      <pre
+        style="
+          width: 350px;
+          height: 40px;
+          border: 1px solid black;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        "
+      ><code id="garalt" style="font-size: 10px;">Result</code></pre>
+    </div>
+    <script>
+
+    function doSomething() {
+      const num1 = Number(document.getElementById("orolt").value);
+      let result="";
+
+      let firstItem=1;
+      let secondItem=1;
+
+      for (let i=0; i<num1; i++){
+        if(i==0){
+          result="1";
+        }
+
+        if (i==1){
+          result=result+" 1";
+        }
+        
+        const thirdItem = firstItem + secondItem;
+        if(i>1){
+          result=result + " " + (firstItem + secondItem);
+          firsiItem = secondItem;
+          secondItem = thirdItem;
+        }
+
+
+        
+      }
+      document.getElementById("garalt").innerText = result;
+    }
+
+    
+
+
+
+
+
+    </script>
+  </body>
+</html>
