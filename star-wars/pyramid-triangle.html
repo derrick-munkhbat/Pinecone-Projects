@@ -52,14 +52,40 @@
         const input = document.getElementById("orolt").value;
         const outputElement = document.getElementById("garalt");
         let result = "";
+
+        //    *
+        //   * *
+        //  * * *
+        // * * * *
         
-        for (let i=0; i<=input.length; i++){
-            result="*";
-            
+        for (let k=0; k<input; k++){
+            for ( let i=0; i<input-1-k; i++){
+                result=result+" ";
+            }
+
+            if (k == 0){
+              result = result = "* ";
+            } else if (k == input-1){
+              for (let i=0; i<input; i++){
+                result = result = "* ";
+              }
+            }else {
+              result = result = "* ";
+
+              for(let i=0; i<k-1; i++){
+                result=result+" ";
+              }
+              result=result+"* ";
+            }
+              
+            result=result+"\n";
+
         }
         outputElement.innerText = result;
+        
          
     }
     </script>
   </body>
 </html>
+

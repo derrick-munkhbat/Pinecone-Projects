@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+  </head>
+  <body>
+    
+    <div
+      class="box"
+      style="
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      "
+    >
+      <div class="is-flex mb-4">
+        <input
+          id="orolt"
+          class="input is-large"
+          type="text"
+          placeholder="Enter text"
+          style="width: 200px; height: 30px"
+        />
+        <button
+          class="button is-primary is-large"
+          style="background-color: aquamarine; width: 100px; height: 40px"
+          onclick="doSomething();"
+        >
+          Calculate
+        </button>
+      </div>
+
+      <pre
+        style="
+          width: 400px;
+          height: 400px;
+          border: 1px solid black;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        "
+      ><code id="garalt" style="font-size: 30px;">Result</code></pre>
+    </div>
+
+    <script>
+
+
+    function getInputNumber() {
+        const input = document.getElementById("orolt").value;
+        return Number(input);
+    }
+
+
+    function displayOutput(text){
+        const outputElement = document.getElementById("garalt");
+        outputElement.innerText = text;
+    }
+
+
+    function doSomething(){
+        const n = getInputNumber();
+        let result = "";
+    
+        let prev = [1];
+        const lines = [];
+
+        for(let i=0; i<n; i++){
+
+            let current = [];
+
+            if (i === 0){
+                current=[1];
+            }else{
+                for (let k=0; k<i+1; k++){
+                    if (k== 0){
+                        current.push(prev[0]);
+                    }
+
+                    if (k>0 && k<i){
+                        current.push(prev[k-1]+prev[k]);
+                    }
+
+                    if (k==i){
+                        current.push(prev[k-1]);
+                    }
+                }
+            }
+
+            prev = current;
+            lines.push(current.join(" "));
+        }
+
+        const maxLen = lines[n-1].length;
+
+        for (let i=0; i<n; i++){
+            const spaceLen = (maxLen - lines[i].length)/2;
+            for (let k=0; k<spaceLen; k++){
+                result+=" ";
+            }
+            result+=lines[i]+"\n";
+        }
+
+        displayOutput(result);
+        
+    }
+    </script>
+  </body>
+</html>
+
