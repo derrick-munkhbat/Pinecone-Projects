@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+<script>
+
+let person = {
+    firstName: 'John',
+    lastName: 'Doe',
+    age: 40,
+    gender: 'male',
+    address: {
+        street: '2900 sunset place', 
+        city: 'Los Angeles',
+        state: 'California',
+        zipcode: '90025',
+    },
+    birthday: function(){
+        this.age=this.age+1;
+        console.log(this.age);
+    }
+}
+
+person.birthday();
+
+
+
+
+
+
+</script>
+
+
+
+    
+</body>
+</html>
