@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+<input id="myInput"></input>
+
+<button onclick="addTask()">Add Task</button>
+
+<div id="tasks"></div>
+
+
+<script>
+
+    const tasks = [
+        {
+            name: "Ayaga ugaah",
+        },
+        {
+            name: "Hog hayah",
+        }, 
+        {
+            name: "toos archih",
+        }
+    ];
+
+    function render(){
+        const tasksElement = document.getElementById("tasks");
+        let result = ``;
+        
+        for (let i=0; i<tasks.length; i++){
+            const task = tasks[i];
+            result = result + `<div>${task.name}</div>`;
+        }
+        tasksElement.innerHTML = result;
+    }
+        
+    function addTask(){
+        const name = document.getElementById("myInput").value;
+        tasks.push({name: name});
+        document.getElementById("myInput").value = "";
+        render();
+    }
+    
+    render();
+
+
+    // const names = ["bunny","puppy","birdie","kitty"];
+    // names.sort();
+    // console.log(names)
+
+    // const numbers = [10,3,65,77,2024];
+    // numbers.sort(compare);
+    // console.log(numbers)
+
+    // function compare(a,b){
+    //     return a-b;
+    // }
+
+    // const products = [
+    //     {name: "desktop", price: 1500},
+    //     {name: "latop", price: 1000},
+    //     {name: "phone", price: 700},
+    //     {name: "car", price: 5000},
+
+    // ];
+
+    // const compareByPrice =((a,b) => {
+    //     return a.price - b.price;
+    // });
+    // console.log(products);
+
+    // const array = [
+    //     {priority: "medium", value: "task 1"},
+    //     {priority: "low", value: "task 2"},
+    //     {priority: "high", value: "task 3"},
+    //     {priority: "medium", value: "task 4"},
+    //     {priority: "high", value: "task 5"},
+    //     {priority: "low", value: "task 6"},
+    // ];
+
+    // const order = {high: 1, medium: 2, low: 3};
+    // const sortedArray = array.sort((a,b)=>{
+    //     return order[a.priority]-order[b.priority];
+    // });
+    // console.log(sortedArray);
+
+   
+
+
+
+</script>
+    
+</body>
+</html>

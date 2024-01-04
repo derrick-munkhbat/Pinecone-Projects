@@ -1,0 +1,64 @@
+html {
+    background-image: url(https://images.unsplash.com/photo-1703434797402-1a557d664894);
+    background-size: cover;
+    font-family: "Roboto", sans-serif;
+  }
+  
+  .board {
+    display: flex;
+    width: 1000px;
+    margin: 0 auto;
+    gap: 20px;
+    align-items: flex-start;
+  }
+  
+  .list {
+    flex: 1;
+    background-color: #ebecf0;
+    border-radius: 10px;
+    margin-top: 100px;
+    padding: 10px;
+  }
+  
+  .board-header {
+    font-weight: bold;
+  }
+  
+  button {
+    font-family: "Roboto", sans-serif;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border-radius: 10px;
+  }
+  
+  .task {
+    background-color: #fff;
+    padding: 5px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    font-size: 13px;
+  }
+  
+  .modal {
+    position: fixed;
+    inset: 0;
+    display: none;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .modal-bg {
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+  
+  .modal-content {
+    position: relative;
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 10px;
+  }

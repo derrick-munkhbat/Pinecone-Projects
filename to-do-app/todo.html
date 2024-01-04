@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="./styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="board">
+      <div class="list">
+        <p class="board-header">Todo</p>
+        <div id="todoTasks">
+          <!-- auto generated tasks -->
+        </div>
+        <button onclick="showModal('todoTasks')">
+          <svg xmlns="http://www.w3.org/2000/svg" height="10" width="10" viewBox="0 0 448 512">
+            <path d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z" />
+          </svg>
+          <p>Add task</p>
+        </button>
+      </div>
+      <div class="list">
+        <p class="board-header">In Progress</p>
+        <div id="inprogressTasks">
+          <!-- auto generated tasks -->
+        </div>
+
+        <button onclick="showModal('todoTasks')">
+          <svg xmlns="http://www.w3.org/2000/svg" height="10" width="10" viewBox="0 0 448 512">
+            <path d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z" />
+          </svg>
+          <p>Add task</p>
+        </button>
+      </div>
+      <div class="list">
+        <p class="board-header">Stuck</p>
+        <div id="stuckTasks">
+          <!-- auto generated tasks -->
+        </div>
+
+        <button onclick="showModal('todoTasks')">
+          <svg xmlns="http://www.w3.org/2000/svg" height="10" width="10" viewBox="0 0 448 512">
+            <path d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z" />
+          </svg>
+          <p>Add task</p>
+        </button>
+      </div>
+      <div class="list">
+        <p class="board-header">Done</p>
+        <div id="doneTasks">
+          <!-- auto generated tasks -->
+        </div>
+
+        <button onclick="showModal('todoTasks')">
+          <svg xmlns="http://www.w3.org/2000/svg" height="10" width="10" viewBox="0 0 448 512">
+            <path d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z" />
+          </svg>
+          <p>Add task</p>
+        </button>
+      </div>
+    </div>
+
+    <div class="modal" id="createModal">
+      <div class="modal-bg" onclick="hideModal()"></div>
+      <div class="modal-content">
+        <div>
+          <h1>Add task</h1>
+          <label for="taskTitle">Title</label>
+          <br />
+          <input id="taskTitle" />
+        </div>
+        <div>
+          <label for="taskDescription">Description</label>
+          <br />
+          <textarea id="taskDescription"></textarea>
+        </div>
+        <div>
+          <label for="taskPriority">Priority</label>
+          <br />
+          <select id="taskPriority">
+            <option>Low</option>
+            <option>Medium</option>
+            <option>High</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="taskStatus">Status</label>
+          <br />
+          <select id="taskStatus">
+            <option value="todoTasks">Todo</option>
+            <option value="inprogressTasks">In Progress</option>
+            <option value="stuckTasks">Stuck</option>
+            <option value="doneTasks">Done</option>
+          </select>
+        </div>
+
+        <button onclick="addTask()">Add task</button>
+        <button onclick="hideModal()">Close</button>
+      </div>
+    </div>
+  </body>
+
+  <script>
+    const tasks = [
+      {
+        id: 1,
+        title: "Title 1",
+        description: "description",
+        priority: "High",
+        status: "todo",
+      },
+
+      {
+        id: -1,
+        title: "Title 2",
+        description: "description",
+        priority: "High",
+        status: "inprogress",
+      },
+      {
+        id: -2,
+        title: "Title 3",
+        description: "description",
+        priority: "Medium",
+        status: "stuck",
+      },
+      {
+        id: -3,
+        title: "Title 4",
+        description: "description",
+        priority: "Low",
+        status: "done",
+      },
+      {
+        id: -4,
+        title: "Title 5",
+        description: "description",
+        priority: "Low",
+        status: "inprogress",
+      },
+      {
+        id: -5,
+        title: "Title 5",
+        description: "description",
+        priority: "Medium",
+        status: "inprogress",
+      },
+    ];
+    let currentTarget = "todoTasks";
+    let generatedId = 0;
+
+    function renderTasks() {
+      const todoTasksElement = document.getElementById("todoTasks");
+      const inprogressTasksElement = document.getElementById("inprogressTasks");
+      const stuckTasksElement = document.getElementById("stuckTasks");
+      const doneTasksElement = document.getElementById("doneTasks");
+
+      let todoResult = "";
+      let inprogressResult = "";
+      let stuckResult = "";
+      let doneResult = "";
+
+      tasks.sort((a1, a2) => {
+        const priorityNumbers = {
+          Low: 3,
+          Medium: 2,
+          High: 1,
+        };
+
+        if (priorityNumbers[a1.priority] > priorityNumbers[a2.priority]) {
+          return 1;
+        } else {
+          return -1;
+        }
+      });
+
+      for (let i = 0; i < tasks.length; i++) {
+        const task = tasks[i];
+        const taskHtml = `<div class="task" id="task-${task.id}">
+                            <span>${task.priority}</span>
+                            <h1>${task.title}</h1>
+                            <p>${task.description}</p>
+                            <button onclick="removeTask(${i})">remove</button>
+                          </div>`;
+
+        switch (task.status) {
+          case "todo":
+            todoResult += taskHtml;
+            break;
+          case "inprogress":
+            inprogressResult += taskHtml;
+            break;
+          case "stuck":
+            stuckResult += taskHtml;
+            break;
+          case "done":
+            doneResult += taskHtml;
+            break;
+        }
+      }
+
+      todoTasksElement.innerHTML = todoResult;
+      inprogressTasksElement.innerHTML = inprogressResult;
+      stuckTasksElement.innerHTML = stuckResult;
+      doneTasksElement.innerHTML = doneResult;
+    }
+
+    function addTask() {
+      const title = document.getElementById("taskTitle").value;
+      const description = document.getElementById("taskDescription").value;
+      const priority = document.getElementById("taskPriority").value;
+
+      tasks.push({
+        id: generatedId++,
+        title: title,
+        description: description,
+        priority: priority,
+        status: currentTarget.replace("Tasks", ""),
+      });
+
+      renderTasks();
+      hideModal();
+      resetForm();
+    }
+
+    function removeTask(index) {
+      tasks.splice(index, 1);
+      renderTasks();
+    }
+
+    function resetForm() {
+      document.getElementById("taskTitle").value = "";
+      document.getElementById("taskDescription").value = "";
+    }
+
+    function showModal(targetId) {
+      const modal = document.querySelector("#createModal");
+      modal.style.display = "flex";
+      currentTarget = targetId;
+    }
+
+    function hideModal() {
+      const modal = document.getElementById("createModal");
+      modal.style.display = "none";
+    }
+
+    renderTasks();
+  </script>
+</html>

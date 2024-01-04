@@ -1,22 +1,17 @@
-html{
-    background-image: url(https://unsplash.com/photos/a-view-of-a-mountain-with-a-moon-in-the-sky-n1SdmFGyxd4);
-    background-size: cover;
-}
-
 *{
     margin: 0;
     padding: 0;
-    
 }
 
 
 .cards-container{
+    background-color: aquamarine;
     display: flex;
     align-items: center;
-    /* width: 500px; */
-    height: 300px;
     justify-content: center;
     gap: 15px;
+    width: 1000px;
+    height: 1000px;
 }
 
 .task-container{
@@ -33,50 +28,20 @@ html{
     border: 2px black solid;
     border-radius: 8px;
     padding: 10px;
-    width: 200px;
-    height: 180px;
-    align-items: start;
-    justify-content: space-evenly;
-}
-
-.layout-title{
-    display: flex;
     gap: 10px;
 }
 
-.layout-description{
-    display: flex;
-    background-color:azure;
-    border-radius: 8px;
-    padding: 5px;
-    width: 190px;
-    height: 80px;
-    align-items: start;
-    justify-content: space-evenly;
-    gap: 3px;
-}
 
-.layout-add{
-    display: flex;
-    gap: 10px;
-}
 
-.description{
+.lists{
     display: flex;
-    width: 150px;
     flex-direction: column;
-    justify-content: space-evenly;
-    align-items: start;
-    gap: 5px;
-}
-
-.priority{
-    border: 1px solid black;
+    flex: 1;
+    width: 200px;
+    /* background-color:aliceblue; */
     border-radius: 8px;
-    padding: 2px;
-
+    gap: 10px;
 }
-
 
 
 /* START OF TASK LAYOUT */
@@ -92,7 +57,8 @@ html{
     justify-content: space-evenly;
     padding: 10px;
     gap: 5px;
-    background-color: azure;
+    background-color: cornflowerblue;
+    
 }   
 
 .add-task-button{
@@ -109,11 +75,10 @@ html{
 .task-fields{
     display: flex;
     flex-direction: column;
-    width: 190px;
 }
 
 
-  .modal{
+.modal{
     display: flex;
     position: fixed;
     inset: 0;
@@ -121,15 +86,33 @@ html{
     align-items: center;
     justify-content: center;
     display: none;
-  }
+}
 
-  .modal-content{
-    background-color: white;
-    border-radius: 8px;
-    padding: 10px;
-  }
+.modal-title{
+    width: 190px;
+}
 
-  .modal-description{
+.modal-description{
     width: 190px;
     height: 100px;
-  }
+}
+
+
+.add-button{
+    padding: 5px;
+}
+
+.task{
+    width: 190px;
+    overflow-wrap: anywhere;
+    padding: 5px;
+    margin-bottom: 10px;
+    background-color:aliceblue;
+    border-radius: 8px;
+    
+}
+
+.removeTask{
+    display: flex;
+    padding: 5px;
+}
