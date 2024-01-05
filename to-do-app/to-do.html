@@ -95,35 +95,102 @@
 
 
 <script>
+const tasks = [
+    {
+        id: 1,
+        title: "title-1",
+        description: "description",
+        priority: "low",
+    },
+    {
+        id: 1,
+        title: "title-2",
+        description: "description",
+        priority: "high",
+    },
+    {
+        id: 1,
+        title: "title-3",
+        description: "description",
+        priority: "medium",
+    },
+    {
+        id: 1,
+        title: "title-4",
+        description: "description",
+        priority: "urgent",
+    },
+    
+];
 
 let currentTarget = "todoTasks";
 let generatedID = 0;
-const todotasksArray = [
-    {
-        title: "",
-        description: "",
+
+function renderTask(){
+    const tasksElement = document.getElementById("todoTasks");
+    const inprogressElement = document.getElementById("inprogressTasks");
+    const stuckElement = document.getElementById("stuckTasks");
+    const doneElement = document.getElementById("doneTasks");
+    let result = "";
+
+    tasks.sort((a1, a2)=>{
+        const priorityNumbers = {
+        low: 4,
+        medium: 3,
+        high: 2,
+        urgent: 1,
+        };
+
+        if(priorityNumbers[a1.priority]>priorityNumbers[a2.priority]){
+            return 1;
+        } else{
+            return -1;
+        }
+            
+
+    });
+    
+    for (let i=0; i<tasks.length; i++){
+        const task = tasks[i];
+        const taskHTML = 
+            `
+            <div class="task" id="task-${task.id}">
+            <div>${task.priority}</div>
+            <h1>${task.title}</h1>
+            <div>${task.description}</div>
+            <button class="removeTask" onclick="removeTask(${i})">remove</button>
+            </div>
+            `;
+            result += taskHTML;
     }
-]
-const inprogresstasksArray = [
-    {
-        title: "",
-        description: "",
-    }
-]
-const stucktasksArray = [
-    {
-        title: "",
-        description: "",
-    }
-]
-const donetasksArray = [
-    {
-        title: "",
-        description: "",
-    }
-]
+    tasksElement.innerHTML = result;
+    
+}
+
+function addTask(){
+    const title = document.getElementById("taskTitle").value;
+    const description = document.getElementById("taskDescription").value;
+    const priority = document.getElementById("taskPriority").value;
+
+    tasks.push({
+        id: generatedID++,
+        title: title,
+        description: description,
+        priority: priority,
+        status: currentTarget.replace("Tasks", ""),
+    })
+
+    renderTask();
+    hideModal();
+    resetForm();
 
 
+    // const todoElement = document.getElementById(currentTarget);
+
+    // todoElement.innerHTML = todoElement.innerHTML + taskHTML;
+
+
+}
 
 function showModal(targetID){
     const modal = document.getElementById('createModal');
@@ -136,54 +203,20 @@ function hideModal(){
     modal.style.display = 'none';
 }
 
-function addTask(){
-    const title = document.getElementById("taskTitle").value;
-    const description = document.getElementById("taskDescription").value;
-    const priority = document.getElementById("taskPriority").value;
-
-    generatedID++;
-
-    const taskHTML = 
-            `
-            <div class="task" id="task-${generatedID}"
-            <h1>${title}</h1>
-            <div>${description}</div>
-            <div>${priority}</div>
-            <button class="removeTask" onclick="removeTask('task-${generatedID}')">remove</button>
-            </div>
-            `;
-
-    const todoElement = document.getElementById(currentTarget);
-
-    todoElement.innerHTML = todoElement.innerHTML + taskHTML;
-
-    hideModal();
-    resetForm();
-    render(tasks.push);
-}
 
 function removeTask(taskID){
-    // alert('remove button');
     document.getElementById(taskID).remove();
 }
 
 function resetForm(){
     document.getElementById("taskTitle").value = "";
     document.getElementById("taskDescription").value = "";
-}
-
-function render(){
-    const tasksElement = document.getElementById("tasks");
-    const result = "";
-    for (let i=0; i<tasks.length; i++){
-        const task = task[i];
-        result=result + task.length[i];
-    }
-    tasksElement.innerHTML = result;
-    
+    document.getElementById("taskPriority").value;
+    document.getElementById("taskSatus").value;
 }
 
 
+renderTask();
 
 
 </script>
