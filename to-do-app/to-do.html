@@ -82,57 +82,78 @@
         <div class="task-fields">
             <label for="taskStatus">Status</label>
             <select id="taskStatus">
-                <option value="todoTasks">to do</option>
-                <option value="inprogressTasks">in progress</option>
-                <option value="stuckTasks">stuck</option>
-                <option value="doneTasks">done</option>
+                <option value="todo">to do</option>
+                <option value="inprogress">in progress</option>
+                <option value="stuck">stuck</option>
+                <option value="done">done</option>
             </select>
         </div>
 
         
         <button class="add-task-button" onclick="addTask()">Add Task</button>
-        <button onclick="hideModal()">Close</button>
+        <button class="updateTask" onclick="updateTask()">Update</button>
+        <button class="closeTask" onclick="hideModal()">Close</button>
 
 
 <script>
 const tasks = [
-    {
-        id: 1,
-        title: "title-1",
-        description: "description",
-        priority: "low",
-    },
-    {
-        id: 1,
-        title: "title-2",
-        description: "description",
-        priority: "high",
-    },
-    {
-        id: 1,
-        title: "title-3",
-        description: "description",
-        priority: "medium",
-    },
-    {
-        id: 1,
-        title: "title-4",
-        description: "description",
-        priority: "urgent",
-    },
+    // {
+    //     id: 1,
+    //     title: "title-1",
+    //     description: "description",
+    //     priority: "low",
+    //     status: "inprogress"
+    // },
+    // {
+    //     id: -1,
+    //     title: "title-2",
+    //     description: "description",
+    //     priority: "high",
+    //     status: "stuck"
+    // },
+    // {
+    //     id: -2,
+    //     title: "title-3",
+    //     description: "description",
+    //     priority: "medium",
+    //     status: "done"
+    // },
+    // {
+    //     id: -3,
+    //     title: "title-4",
+    //     description: "description",
+    //     priority: "urgent",
+    //     status: "todo"
+    // },
+    // {
+    //     id: -4,
+    //     title: "title-5",
+    //     description: "description",
+    //     priority: "urgent",
+    //     status: "stuck"
+    // },
     
 ];
 
 let currentTarget = "todoTasks";
 let generatedID = 0;
+let editingIndex;
 
 function renderTask(){
-    const tasksElement = document.getElementById("todoTasks");
-    const inprogressElement = document.getElementById("inprogressTasks");
-    const stuckElement = document.getElementById("stuckTasks");
-    const doneElement = document.getElementById("doneTasks");
-    let result = "";
+    // element 
+    const todoTasksElement = document.getElementById("todoTasks");
+    const inprogressTasksElement = document.getElementById("inprogressTasks");
+    const stuckTasksElement = document.getElementById("stuckTasks");
+    const doneTasksElement = document.getElementById("doneTasks");
+    
 
+    
+    let todoResult = "";
+    let inprogressResult = "";
+    let stuckResult = "";
+    let doneResult = "";
+   
+    // sort
     tasks.sort((a1, a2)=>{
         const priorityNumbers = {
         low: 4,
@@ -149,6 +170,8 @@ function renderTask(){
             
 
     });
+
+
     
     for (let i=0; i<tasks.length; i++){
         const task = tasks[i];
@@ -159,11 +182,32 @@ function renderTask(){
             <h1>${task.title}</h1>
             <div>${task.description}</div>
             <button class="removeTask" onclick="removeTask(${i})">remove</button>
+            <button class="editTask" onclick="editTask(${i})">edit</button>
             </div>
             `;
-            result += taskHTML;
+
+            switch (task.status){
+                case "todo":
+                    todoResult += taskHTML;
+                    break;
+                case "inprogress":
+                    inprogressResult += taskHTML;
+                    break;
+                case "stuck":
+                    stuckResult += taskHTML;
+                    break;
+                case "done":
+                    doneResult += taskHTML;
+                    break;
+            }
+
+
     }
-    tasksElement.innerHTML = result;
+
+    todoTasksElement.innerHTML = todoResult;
+    inprogressTasksElement.innerHTML = inprogressResult;
+    stuckTasksElement.innerHTML = stuckResult;
+    doneTasksElement.innerHTML = doneResult;
     
 }
 
@@ -171,13 +215,14 @@ function addTask(){
     const title = document.getElementById("taskTitle").value;
     const description = document.getElementById("taskDescription").value;
     const priority = document.getElementById("taskPriority").value;
+    const status = document.getElementById("taskStatus").value;
 
     tasks.push({
         id: generatedID++,
         title: title,
         description: description,
         priority: priority,
-        status: currentTarget.replace("Tasks", ""),
+        status: status,
     })
 
     renderTask();
@@ -185,12 +230,29 @@ function addTask(){
     resetForm();
 
 
-    // const todoElement = document.getElementById(currentTarget);
-
-    // todoElement.innerHTML = todoElement.innerHTML + taskHTML;
-
-
 }
+
+function updateTask(){
+    const title = document.getElementById("taskTitle").value;
+    const description = document.getElementById("taskDescription").value;
+    const priority = document.getElementById("taskPriority").value;
+    const status = document.getElementById("taskStatus").value;
+    
+
+    tasks[editingIndex].title = title;
+    tasks[editingIndex].description = description;
+    tasks[editingIndex].priority = priority;
+    tasks[editingIndex].status = status;
+    
+
+    renderTask();
+    hideModal();
+    resetForm();
+
+    };
+
+    
+
 
 function showModal(targetID){
     const modal = document.getElementById('createModal');
@@ -204,17 +266,28 @@ function hideModal(){
 }
 
 
-function removeTask(taskID){
-    document.getElementById(taskID).remove();
+function removeTask(index){
+    if (confirm("Are you sure?")){
+        tasks.splice(index, 1);
+        renderTask();
+    }
+}
+
+function editTask(index){
+    showModal();
+    document.getElementById("taskTitle").value = tasks[index].title;
+    document.getElementById("taskDescription").value = tasks[index].description;
+    editingIndex = index;
 }
 
 function resetForm(){
     document.getElementById("taskTitle").value = "";
     document.getElementById("taskDescription").value = "";
-    document.getElementById("taskPriority").value;
-    document.getElementById("taskSatus").value;
 }
 
+function disableButton(){
+    <button class="editTask" onclick="">edit</button>
+}
 
 renderTask();
 

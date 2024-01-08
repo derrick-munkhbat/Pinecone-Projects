@@ -62,14 +62,7 @@
 }   
 
 .add-task-button{
-    display: flex;
     padding: 5px;
-    width: 190px;
-    background-color: black;
-    color: white;
-    border-radius: 3px;
-    align-items: center;
-    justify-content: center;
 }
 
 .task-fields{
@@ -113,6 +106,18 @@
 }
 
 .removeTask{
-    display: flex;
     padding: 5px;
 }
+
+.editTask{
+    padding: 5px;
+}
+
+.updateTask{
+    padding: 5px;
+}
+
+.closeTask{
+    padding: 5px;
+}
+
