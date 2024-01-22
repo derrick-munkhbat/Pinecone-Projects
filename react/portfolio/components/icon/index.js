@@ -14,11 +14,16 @@ export * from "./Node";
 export * from "./Express";
 export * from "./Nest";
 export * from "./Socket";
-export * from "./Post";
 export * from "./Mongo";
 export * from "./Sass";
-export * from "./Tailwind";
 export * from "./Figma";
 export * from "./Cypress";
 export * from "./Storybook";
 export * from "./Git";
+export * from "./Tailwind";
+export * from "./Action";
+export * from "./Email";
+export * from "./Copy";
+export * from "./Cell";
+export * from "./Copyright";
+

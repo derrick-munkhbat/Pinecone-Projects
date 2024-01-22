@@ -1,6 +1,6 @@
 export function MenuItems({ items }) {
   return (
-    <div className="hidden sm:flex">
+    <div className="hidden lg:flex">
       <a className="px-4 py-2" href="{items[0].link}">
         {items[0].label}
       </a>

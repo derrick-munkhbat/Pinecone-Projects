@@ -17,16 +17,17 @@ export function Header() {
   return (
     <div className="border-2 flex justify-between p-4 items-center">
       <Logo />
-      <div className="sm: flex sm:hidden">
+      <div className="flex lg:hidden">
         <Menu />
       </div>
-      <MenuItems items={menuItems} />
-      <div className="hidden sm:flex">
+      
+      <div className="hidden lg:flex">
+        <MenuItems items={menuItems} />
         <button>< Switch /></button>
         <div className=" inline-block px-4 py-2 bg-black rounded-full text-white">
             <h1>Download CV</h1>
         </div> 
-    </div>
+      </div>
     </div>
   );
 
