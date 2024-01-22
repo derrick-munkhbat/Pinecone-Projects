@@ -1,19 +1,11 @@
+import { menuItems } from "@/data/menuItem";
 import { Switch } from "./icon";
 import { Logo } from "./icon/Logo";
 import { Menu } from "./icon/Menu";
-import { MenuItems } from "./MenuItems";
+import { MainMenu } from "./MainMenu";
+
 
 export function Header() {
-  const menuItems = [
-    { label: "About me", link: "/about" },
-    { label: "Work", link: "/work" },
-    { label: "Testimonials", link: "/testimonials" },
-    { label: "Contact", link: "/contact" },
-  ];
-
-  
-   
-
   return (
     <div className="border-2 flex justify-between p-4 items-center">
       <Logo />
@@ -22,11 +14,11 @@ export function Header() {
       </div>
       
       <div className="hidden lg:flex">
-        <MenuItems items={menuItems} />
+        <MainMenu items={menuItems} />
         <button>< Switch /></button>
-        <div className=" inline-block px-4 py-2 bg-black rounded-full text-white">
+        <a href="./images/profile-portrait.jpg" download className=" inline-block px-4 py-2 bg-black rounded-full text-white dark:bg-white dark:text-black">
             <h1>Download CV</h1>
-        </div> 
+        </a> 
       </div>
     </div>
   );
