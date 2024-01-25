@@ -26,4 +26,5 @@ export * from "./Email";
 export * from "./Copy";
 export * from "./Cell";
 export * from "./Copyright";
+export * from "./Upwork";
 
