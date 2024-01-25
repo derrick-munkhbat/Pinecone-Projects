@@ -1,4 +1,3 @@
-
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 
@@ -34,7 +33,7 @@ import { Chip } from "@/components/Chip";
 export default function Home() {
   return (
 
-<div className="lg:p-20 max-lg:w-96 mx-auto justify-center">
+<div className="pt-20 lg:p-20 max-lg:w-96 mx-auto justify-center dark:bg-black dark:text-white">
     <div className="p-3">
       <Header />
 
@@ -81,15 +80,15 @@ export default function Home() {
           <Chip label="About me" />
         </div>
 
-        <div className="lg:flex">
-          <div className="flex justify-center mt-10 lg:w-3/6">
+        <div className="lg:flex gap-5">
+          <div className="flex justify-center p-5 lg:w-3/6">
             <img src="/images/profile-about-me.jpg" alt="profile-about-me" />
           </div>
 
           
-          <div className="mt-5 lg:w-3/4">
+          <div className="p-5 lg:w-3/4">
             <h2 className="text-4xl">Curious about me? Here you have it:</h2>
-            <p className="text-base mt-2 text-slate-500 text-justify">
+            <p className="text-base text-slate-500 text-justify">
               I'm a passionate, self-proclaimed designer who specializes in full
               stack development (React.js & Node.js). I am very enthusiastic about
               bringing the technical and visual aspects of digital products to

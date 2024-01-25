@@ -5,7 +5,7 @@ export * from "./Kitty";
 export * from "./Location";
 export * from "./Logo";
 export * from "./Menu";
-export * from "./Switch";
+export * from "./Theme";
 export * from "./Js";
 export * from "./Ts";
 export * from "./React";

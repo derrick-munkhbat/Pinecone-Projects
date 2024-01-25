@@ -1,4 +1,5 @@
-
+import { useState } from "react";
+import { Menu } from "./icon/Menu";
 
 export function MainMenu({ items }) {
   return (
@@ -10,6 +11,7 @@ export function MainMenu({ items }) {
           </a>
         ))}
       </div>
+      
       <MobileMenu />
       
     </div>
@@ -20,15 +22,36 @@ export function MainMenu({ items }) {
 
 
 function MobileMenu(){
-  const open = true;
+  const [visible, setVisible] = useState(false);
+
+  // let open = false;
+
+  function openMenu(){
+    // open=true;
+    setVisible(true);
+  }
+
+  function closeMenu(){
+    // open=false;
+    setVisible(false);
+  }
+
   return (
   <>
-    <div className="fixed bg-slate-400/70 inset-0"></div>
-    <div className={'bg-white fixed top-0 bottom-0 w-3/4 transition-all ${open ? "right-0": "-right-full"}'}>
+    <button className="flex lg:hidden" onClick={openMenu}>
+      <Menu />
+    </button>
+    {
+      visible && <div className="fixed bg-slate-400/70 inset-0"></div>
+    }
+    
+    <div className={`fixed top-0 bottom-0 w-3/4 transition-all bg-white ${visible ? "right-0": "-right-full"}`}>
       <div className="p-8 text-2xl">Mobile Menu</div>
-      <button>close</button>
+      <button onClick={closeMenu}>close</button>
     </div>
   </>
   )
 }
+
+
 
