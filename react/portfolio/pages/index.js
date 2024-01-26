@@ -1,6 +1,6 @@
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
-
+import { Skills } from "@/components/Skills-icons";
 import {
   Birdy,
   Hug,
@@ -28,6 +28,8 @@ import {
   Cell,
   Upwork,
 } from "@/components/icon";
+
+
 import { Chip } from "@/components/Chip";
 // import { list } from "postcss";
 
@@ -139,6 +141,8 @@ export default function Home() {
 
         {/* SKILLS */}
 
+        
+
         <div className="p-5">
           <div className="flex flex-col items-center p-5">
             <Chip label="Skills" />
@@ -148,7 +152,7 @@ export default function Home() {
             The skills, tools and technologies I am really good at:
           </p>
 
-          <div className="flex-col mt-10 lg:hidden">
+          {/* <div className="flex-col mt-10 lg:hidden">
             <div className="flex justify-evenly mb-10">
               <Js />
               <Ts />
@@ -206,7 +210,10 @@ export default function Home() {
               <Storybook />
               <Git />
             </div>
-          </div>
+          </div> */}
+        
+
+          < Skills />
         </div>
 
         {/* EXPERIENCE */}

@@ -1,4 +1,4 @@
-export function React (){
+export function Post (){
     return (<svg width="71" height="64" viewBox="0 0 71 64" fill="none" xmlns="http://www.w3.org/2000/svg">
     <g clip-path="url(#clip0_316_277)">
     <path d="M35.6569 38.7725C39.3293 38.7725 42.3063 35.7404 42.3063 32C42.3063 28.2597 39.3293 25.2275 35.6569 25.2275C31.9846 25.2275 29.0076 28.2597 29.0076 32C29.0076 35.7404 31.9846 38.7725 35.6569 38.7725Z" fill="#087EA4"/>
