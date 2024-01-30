@@ -1,10 +1,10 @@
-
+import {MainImg} from "@/components/Content/MainImg";
 
 export function Content() {
     return (
   
-      <div className="flex p-3">
-       Content
+      <div className="">
+       <MainImg/>
       </div>
 
 
