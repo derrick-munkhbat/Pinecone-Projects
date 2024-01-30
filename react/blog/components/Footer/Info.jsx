@@ -8,7 +8,7 @@ import {SocialLogos} from "@/components/Footer/SocialLogos";
 
 export function Info() {
     return (
-        <div className="flex items-center gap-5 bg-orange-200 justify-between">
+        <div className="flex items-center gap-5 justify-between">
 
         <About/>
         <Link/>
