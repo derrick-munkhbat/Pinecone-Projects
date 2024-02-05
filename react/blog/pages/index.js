@@ -7,15 +7,14 @@ export default function Home() {
   return (
 
     // MAIN LAYOUT
-    <main className="p-2 w-10/12 mx-auto">
-
+    <>
+    <div className="flex flex-col p-2 gap-2 w-10/12 mx-auto">
       <Header/>
       <Content/>
+    </div>
+    <div>
       <Footer/>
-     
-
-
-      
-    </main>
+    </div>
+    </>
   );
 }

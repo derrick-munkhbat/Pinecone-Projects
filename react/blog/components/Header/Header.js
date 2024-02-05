@@ -6,7 +6,7 @@ import {Search} from "@/components/Header/Search";
 export function Header() {
     return (
   
-      <div className="flex items-center justify-between  bg-orange-200 p-3 rounded-2xl">
+      <div className="flex flex-wrap items-center justify-between rounded-2xl gap-2 pt-3 pb-3">
         <Logo/>
         <MainMenu/>
         <Search/>

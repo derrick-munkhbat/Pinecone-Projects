@@ -6,11 +6,11 @@ import {In} from "@/components/icons/In";
 
 export function SocialLogos() {
     return (
-      <div className="flex justify-start items-center gap-50 gap-10">
-        <Fb/>
-        <Twitter/>
-        <Ig/>
-        <In/>
+      <div className="flex justify-start items-center gap-5">
+        <button><Fb/></button>
+        <button><Twitter/></button>
+        <button><Ig/></button>
+        <button><In/></button>
       </div>
     );
   }
