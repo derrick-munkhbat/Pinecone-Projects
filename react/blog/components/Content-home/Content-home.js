@@ -1,5 +1,5 @@
-import {MainImg} from "@/components/Content/MainImg";
-import {Grid} from "@/components/Content/Grid";
+import {MainImg} from "@/components/Content-home/MainImg";
+import {Grid} from "@/components/Content-home/Grid";
 import {LeftArrow} from "@/components/icons/LeftArrow";
 import {RightArrow} from "@/components/icons/RightArrow";
 

@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-export function Card({article}){
+export function Card({article, profileShown}){
     return(
         <Link href={article.path} className="p-4 border rounded-2xl hover:bg-slate-50">
       <img src={article.cover_image} className="object-cover mb-4 rounded aspect-video" />
@@ -14,6 +14,7 @@ export function Card({article}){
         </div>
 
         <h2 className="mb-5 text-lg font-bold">{article.title}</h2>
+        {profileShown && <div>Profile</div>}
         <div className="text-gray-600">{article.readable_publish_date}</div>
       </div>
     </Link>

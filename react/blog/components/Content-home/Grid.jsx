@@ -1,4 +1,4 @@
-import {Card} from "@/components/Content/Card";
+import {Card} from "@/components/Content-home/Card";
 import {useEffect, useState} from "react";
 import {Loader} from "@/components/Loader";
 
@@ -7,13 +7,14 @@ export function Grid() {
   const [articles, setArticles] = useState();
   const [currentPage, setCurrentPage] = useState(1);
     
+    async function fetchInitialArticles(){
+      const res = await fetch("https://dev.to/api/articles?username=j471n")
+      const data = await res.json();
+          setArticles(data);
+    }
   
     useEffect(() => {
-      fetch("https://dev.to/api/articles?username=j471n")
-        .then((response) => response.json())
-        .then((data) => {
-          setArticles(data);
-        });
+      fetchInitialArticles()
     }, []);
 
     if (articles === undefined) return <Loader/>;
@@ -24,10 +25,13 @@ export function Grid() {
         .then((data) => {
           setArticles([...articles, ...data]);
           setCurrentPage(currentPage + 1);
+        })
+        .catch((e)=>{
+          
         });
     }
 
-    
+   
   
     if (articles === undefined) return <Loader />;
   
@@ -37,7 +41,7 @@ export function Grid() {
         <div className="container mx-auto">
           <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             {articles.map((article) => (
-              <Card key={article.id} article={article} />
+              <Card key={article.id} article={article} profileShown/>
             ))}
           </div>
         </div>

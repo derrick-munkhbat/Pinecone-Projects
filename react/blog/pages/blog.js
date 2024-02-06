@@ -1,6 +1,6 @@
 import { Header } from "@/components/Header/Header";
 import { Footer } from "@/components/Footer/Footer";
-import { Content } from "@/components/Content-home/Content-home";
+import { Grid} from "@/components/Content-home/Grid";
 
 
 export default function Home() {
@@ -10,7 +10,7 @@ export default function Home() {
     <>
     <div className="flex flex-col p-2 gap-2 w-10/12 mx-auto">
       <Header/>
-      <Content/>
+      <Grid/>
     </div>
     <div className="bg-gray-200">
       <Footer/>

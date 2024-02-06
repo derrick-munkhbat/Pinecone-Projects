@@ -6,7 +6,7 @@ import {In} from "@/components/icons/In";
 
 export function SocialLogos() {
     return (
-      <div className="flex justify-start items-center gap-5">
+      <div className="flex justify-start items-center gap-5 p-3 md:justify-center">
         <button><Fb/></button>
         <button><Twitter/></button>
         <button><Ig/></button>
