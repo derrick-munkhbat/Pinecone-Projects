@@ -3,7 +3,7 @@ import { Footer } from "@/components/Footer/Footer";
 import { Content } from "@/components/Content-home/Content-home";
 
 
-export default function Home() {
+export default function Index() {
   return (
 
     // MAIN LAYOUT
