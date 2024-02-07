@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 
 // export default function Home() {
 //     const [value, setValue] = useState('')
-    
+
 //     useEffect(() => {
 //         console.log("2laa uurchlugdsun");
 //     },  [value]);
@@ -11,45 +11,35 @@ import { useEffect, useState } from "react";
 //         setValue(event.target.value);
 //     };
 
-
 //     return <input value={value} onChange={onChange}/>
 // }
 
-
 export default function Home() {
-
-    return  <Timer seconds = {3} />;
+  return <Timer seconds={3} />;
 }
-  
-const Timer=({seconds}) => {
-    const [timeLeft, setTimeLeft] = useState(seconds);
-    const [isPaused, setIsPaused] = useState(false);
 
-    useEffect(() => {
-        if (timeLeft <= 0) return;
+const Timer = ({ seconds }) => {
+  const [timeLeft, setTimeLeft] = useState(seconds);
+  const [isPaused, setIsPaused] = useState(false);
 
-        const intervalId = setInterval(() => {
-            setTimeLeft(timeLeft-1);
-        }, 1000);
+  useEffect(() => {
+    if (timeLeft <= 0) return;
 
-        return () => clearInterval(intervalId);
+    const intervalId = setInterval(() => {
+      setTimeLeft(timeLeft - 1);
+    }, 1000);
 
-    }, [timeLeft, isPaused]);
+    return () => clearInterval(intervalId);
+  }, [timeLeft, isPaused]);
 
-    console.log("timeLeft", timeLeft);
-    console.log("isPaused", isPaused);
+  console.log("timeLeft", timeLeft);
+  console.log("isPaused", isPaused);
 
-    return(
-        <div className="flex gap-5">
-            <button onClick={() => setIsPaused(true)}>pause</button>
-            <button onClick={() => setIsPaused(false)}>continue</button>
-            <button onClick={() => setTimeLeft(seconds)}>reset</button>
-        </div> 
-    );
-
+  return (
+    <div className="flex gap-5">
+      <button onClick={() => setIsPaused(true)}>pause</button>
+      <button onClick={() => setIsPaused(false)}>continue</button>
+      <button onClick={() => setTimeLeft(seconds)}>reset</button>
+    </div>
+  );
 };
-
-
-
-
-  

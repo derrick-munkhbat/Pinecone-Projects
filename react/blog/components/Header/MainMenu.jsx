@@ -1,8 +1,5 @@
 import { MenuDots } from "./MenuDots";
 
-
-
-
 export function MainMenu() {
   return (
     <>
