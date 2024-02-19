@@ -11,7 +11,9 @@ export function MainMenu() {
         <Link href="/articles/contact">Contact</Link>
       </div>
       <button className="md:hidden">
-        <MenuDots />
+        <MenuDots>
+            {/* function */}
+        </MenuDots>
       </button>
     </>
   );
