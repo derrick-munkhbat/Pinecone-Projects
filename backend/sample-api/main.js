@@ -1,33 +1,54 @@
+const { log } = require("console");
 const express = require("express");
 const fs = require("fs");
 
 const app = express();
 const port = 3000;
 
-app.get("/", (req, res) => {
-  const title = "hello";
+app.use(express.json());
 
-  res.json([
-    {
-      title: title,
-      description: "world",
-    },
-  ]);
+app.get("/articles", (req, res) => {
+  const data = fs.readFileSync("articles.json", "utf8");
+  res.json(JSON.parse(data));
 });
 
-app.get("/create", (req, res) => {
-  const content = "Some content";
+//POST
+app.post("/articles/create", (req, res) => {
+  const {title, desc } = req.body;
 
-  res.json([{ name: "Comments" }]);
+  const data = fs.readFileSync("articles.json", "utf8");
+  const list = JSON.parse(data);
+
+  list.push({
+    
+    title: title,
+    desc: desc,
+  });
+
+  fs.writeFileSync("articles.json", JSON.stringify(list));
+  res.json([{ status: "Success" }]);
 });
 
-app.get("/update", (req, res) => {
-  const title = "hello";
+
+
+//DELETE
+app.delete('/articles/delete/:id', (req, res) => {
+  const id = req.params.id;
+  res.send(`Deleted user with ID ${id}`);
 });
 
-app.get("/delete", (req, res) => {
-  const title = "hello";
+
+
+//UPDATE
+app.get("/articles/update/:id", (req, res) => {
+  const id = req.params.id;
+
+    res,render(`Updated user with ID ${id}`);
+
 });
+
+
+
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
