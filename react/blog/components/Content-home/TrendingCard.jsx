@@ -6,10 +6,11 @@ export function TrendingCard({ article, profileShown }) {
       href={article.path}
       className="p-4 border rounded-2xl hover:bg-slate-50"
     >
-      <img
+      <img className="relative mb-4 rounded aspect-video absolute"
         src={article.cover_image}
-        className="object-cover mb-4 rounded aspect-video"
+        
       />
+      
       <div className="p-2">
         <div className="flex flex-wrap gap-2 mb-4">
           {article.tag_list.map((tag) => (
@@ -23,8 +24,6 @@ export function TrendingCard({ article, profileShown }) {
         </div>
 
         <h2 className="mb-5 text-lg font-bold">{article.title}</h2>
-        {profileShown && <div>Profile</div>}
-        <div className="text-gray-600">{article.readable_publish_date}</div>
       </div>
     </Link>
   );
