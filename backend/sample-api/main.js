@@ -1,11 +1,12 @@
-const { log } = require("console");
 const express = require("express");
 const fs = require("fs");
+var cors = require("cors");
 
 const app = express();
 const port = 3000;
 
 app.use(express.json());
+app.use(cors());
 
 app.get("/articles", (req, res) => {
   const data = fs.readFileSync("articles.json", "utf8");
@@ -14,13 +15,12 @@ app.get("/articles", (req, res) => {
 
 //POST
 app.post("/articles/create", (req, res) => {
-  const {title, desc } = req.body;
+  const { title, desc } = req.body;
 
   const data = fs.readFileSync("articles.json", "utf8");
   const list = JSON.parse(data);
 
   list.push({
-    
     title: title,
     desc: desc,
   });
@@ -29,26 +29,18 @@ app.post("/articles/create", (req, res) => {
   res.json([{ status: "Success" }]);
 });
 
-
-
 //DELETE
-app.delete('/articles/delete/:id', (req, res) => {
+app.delete("/articles/delete/:id", (req, res) => {
   const id = req.params.id;
   res.send(`Deleted user with ID ${id}`);
 });
-
-
 
 //UPDATE
 app.get("/articles/update/:id", (req, res) => {
   const id = req.params.id;
 
-    res,render(`Updated user with ID ${id}`);
-
+  res, render(`Updated user with ID ${id}`);
 });
-
-
-
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
