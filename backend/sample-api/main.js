@@ -20,7 +20,11 @@ app.post("/articles/create", (req, res) => {
   const data = fs.readFileSync("articles.json", "utf8");
   const list = JSON.parse(data);
 
+
+  const id = list.length + 1;
+
   list.push({
+    id: id,
     title: title,
     desc: desc,
   });
@@ -32,14 +36,15 @@ app.post("/articles/create", (req, res) => {
 //DELETE
 app.delete("/articles/delete/:id", (req, res) => {
   const id = req.params.id;
-  res.send(`Deleted user with ID ${id}`);
+  res.send(`Deleted user with ID #${id}`);
+  
 });
 
 //UPDATE
-app.get("/articles/update/:id", (req, res) => {
+app.put("/articles/update/:id", (req, res) => {
   const id = req.params.id;
 
-  res, render(`Updated user with ID ${id}`);
+  res.render(`Updated user with ID #${id}`);
 });
 
 app.listen(port, () => {
