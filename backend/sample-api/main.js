@@ -20,10 +20,10 @@ app.post("/tasks/create", (req, res) => {
   const data = fs.readFileSync("tasks.json", "utf8");
   const list = JSON.parse(data);
 
-  const articleId = list.length + 1;
+  const taskID = Date.now();
 
   list.push({
-    id: articleId,
+    id: taskID,
     title: title,
   });
 
@@ -33,7 +33,17 @@ app.post("/tasks/create", (req, res) => {
 
 //UPDATE
 app.put("/tasks/update/:id", (req, res) => {
-  const id = req.params.id;
+  const { id } = req.params;
+  const { title } = req.body;
+
+  const data = fs.readFileSync("tasks.json", "utf8");
+  const list = JSON.parse(data);
+
+  const index = list.findIndex((item) => item.id === Number(id));
+
+  list[index].title = title;
+  fs.writeFileSync("tasks.json", JSON.stringify(list));
+
   res.json([{ status: "Success" }]);
 });
 
@@ -51,5 +61,4 @@ app.delete("/tasks/delete/:id", (req, res) => {
   res.json([{ status: "Success" }]);
 });
 
-app.listen(port, () => {
-});
+app.listen(port, () => {});
