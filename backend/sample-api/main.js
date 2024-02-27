@@ -31,51 +31,27 @@ app.get("/tasks", async (req, res) => {
 });
 
 //POST
-app.post("/tasks/create", (req, res) => {
+app.post("/tasks/create", async (req, res) => {
   const { title } = req.body;
-
-  const data = fs.readFileSync("tasks.json", "utf8");
-  const list = JSON.parse(data);
-
-  const taskID = Date.now();
-
-  list.push({
-    id: taskID,
-    title: title,
-  });
-
-  fs.writeFileSync("tasks.json", JSON.stringify(list));
+  await sql`insert into tasks(id, title) values(${Date.now()}, ${title})`;
   res.json([{ status: "Success" }]);
 });
 
 //UPDATE
-app.put("/tasks/update/:id", (req, res) => {
+app.put("/tasks/update/:id", async (req, res) => {
   const { id } = req.params;
   const { title } = req.body;
-
-  const data = fs.readFileSync("tasks.json", "utf8");
-  const list = JSON.parse(data);
-
-  const index = list.findIndex((item) => item.id === Number(id));
-
-  list[index].title = title;
-  fs.writeFileSync("tasks.json", JSON.stringify(list));
-
+  await sql`update tasks set title = ${title} where id = ${id}`;
   res.json([{ status: "Success" }]);
 });
 
 //DELETE
-app.delete("/tasks/delete/:id", (req, res) => {
+app.delete("/tasks/delete/:id", async (req, res) => {
   const { id } = req.params;
-
-  const data = fs.readFileSync("tasks.json", "utf8");
-  const list = JSON.parse(data);
-
-  const newList = list.filter((item) => item.id !== Number(id));
-
-  fs.writeFileSync("tasks.json", JSON.stringify(newList));
-
+  await sql`delete from tasks where id = ${id}`;
   res.json([{ status: "Success" }]);
 });
 
-app.listen(port, () => {});
+app.listen(port, () => {
+  console.log(`Example app listening on port ${port}`);
+});
