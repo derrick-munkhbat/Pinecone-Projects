@@ -33,7 +33,7 @@ app.use(cors());
 // getPgVersion();
 
 app.get("/", async (req, res) => {
-  res.send("Hello there");
+  res.send("Hello there, backend running");
 });
 
 // app.get("/users", async (req, res) => {
@@ -42,27 +42,32 @@ app.get("/", async (req, res) => {
 // });
 
 //POST
-app.post("create-user", async (req, res) => {
+app.post("/create-user", async (req, res) => {
   const { name, email, password, avatar_img } = req.body;
   const response =
     await sql`insert into users (name, email, password, avatar_img) values (${name}, ${email}, ${password}, ${avatar_img})`;
   res.json(response);
 });
 
-// //UPDATE
-// app.put("/users/update/:id", async (req, res) => {
-//   const { id } = req.params;
-//   const { name } = req.body;
-//   await sql`update tasks set name = ${name})`;
-//   res.json(result);
-// });
 
 //DELETE
-// app.delete("/:id", async (req, res) => {
-//   const { id } = req.params;
-//   await sql`delete from tasks where id =${id})`;
-//   res.json(result);
-// });
+app.delete("/delete-user/:id", async (req, res) => {
+  const { id } = req.params;
+  const response =
+  await sql`delete from users where id = ${id}`;
+  res.json(response);
+});
+
+
+//UPDATE
+app.put("/update-user/:id", async (req, res) => {
+  const { id } = req.params;
+  const { name, email, password, avatar_img } = req.body;
+  const response =
+  await sql`update users set name = ${name}, email = ${email}, password = ${ password }, avatar_img = ${ avatar_img } where id = ${ id }`;
+  res.json(response);
+});
+
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
