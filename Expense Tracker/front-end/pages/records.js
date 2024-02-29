@@ -1,6 +1,7 @@
 import { Cards } from "./components/Cards";
 import { Header } from "./components/Header/Header";
 import { Footer } from "./components/Footer/Footer";
+// import { DatePicker } from "./components/DatePicker";
 
 export default function Home() {
   return (
@@ -12,11 +13,12 @@ export default function Home() {
       </div>
 
       {/* body layout*/}
-      <div className="flex justify-center gap-10 p-3">
+      <div className="relative flex justify-center gap-10 p-3">
         {/* left-side */}
         <div class="artboard rounded-xl phone-6 bg-slate-50 p-3">
           <h1>Records</h1>
-          <button className="btn btn-primary">Add</button>
+          <button className="btn btn-primary">Add record</button>
+
           <label class="input input-bordered flex items-center gap-2">
             <input type="text" class="grow" placeholder="Search" />
             <svg
@@ -53,6 +55,52 @@ export default function Home() {
             <Cards />
             <Cards />
           </div>
+        </div>
+        <div className="absolute card w-[792px] h-[512px] bg-orange-200 rounded justify-start items-stretch text-5xl">
+          <div className="flex items-center justify-between gap-10 border-2 border-slate-400">
+            <h1>Add Record</h1>
+            <h1>Close</h1>
+          </div>
+
+          <div className="flex gap-10 justify-center">
+            <div>
+              <p>amount</p>
+              <input
+                type="text"
+                placeholder="Type here"
+                class="input input-bordered w-full max-w-xs"
+              />
+              <p>category</p>
+              <select class="select select-bordered w-full max-w-xs">
+                <option disabled selected>
+                  Who shot first?
+                </option>
+                <option>Han Solo</option>
+                <option>Greedo</option>
+              </select>
+              <div className="flex gap-5">
+                {/* <DatePicker /> */}
+                <p>date</p>
+                <p>date</p>
+              </div>
+            </div>
+            <div className="">
+              <p>payee</p>
+              <select class="select select-bordered w-full max-w-xs">
+                <option disabled selected>
+                  Who shot first?
+                </option>
+                <option>Han Solo</option>
+                <option>Greedo</option>
+              </select>
+              <p>note</p>
+              <textarea
+                placeholder="Bio"
+                class="textarea textarea-bordered textarea-lg w-full max-w-xs"
+              ></textarea>
+            </div>
+          </div>
+          <button className="btn btn-primary">Add record</button>
         </div>
       </div>
 
