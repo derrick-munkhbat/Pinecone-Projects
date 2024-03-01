@@ -1,7 +1,8 @@
 import { Cards } from "./components/Cards";
 import { Header } from "./components/Header/Header";
 import { Footer } from "./components/Footer/Footer";
-// import { DatePicker } from "./components/DatePicker";
+// import {DatePicker} from "./components/DatePicker";
+import { Date } from "./components/DatePicker";
 
 export default function Home() {
   return (
@@ -39,7 +40,7 @@ export default function Home() {
         </div>
 
         {/* right side */}
-        <div>
+        <div className="">
           <div>
             <h1 className="flex p-3">Today</h1>
             <Cards />
@@ -56,6 +57,8 @@ export default function Home() {
             <Cards />
           </div>
         </div>
+
+        {/* ADD RECORD FORM */}
         <div className="absolute card w-[792px] h-[512px] bg-orange-200 rounded justify-start items-stretch text-5xl">
           <div className="flex items-center justify-between gap-10 border-2 border-slate-400">
             <h1>Add Record</h1>
@@ -79,9 +82,17 @@ export default function Home() {
                 <option>Greedo</option>
               </select>
               <div className="flex gap-5">
-                {/* <DatePicker /> */}
-                <p>date</p>
-                <p>date</p>
+                <div className="flex flex-col gap-3">
+                  <p>date</p>
+                  <Date />
+                </div>
+                <div className="flex flex-col gap-3">
+                  <p>date</p>
+                  <Date />
+                </div>
+              </div>
+              <div className="flex justify-center">
+                <button className="btn btn-primary w-3/4">Add record</button>
               </div>
             </div>
             <div className="">
@@ -96,11 +107,10 @@ export default function Home() {
               <p>note</p>
               <textarea
                 placeholder="Bio"
-                class="textarea textarea-bordered textarea-lg w-full max-w-xs"
+                class="textarea textarea-bordered textarea-lg w-full max-w-xs h-[230px]"
               ></textarea>
             </div>
           </div>
-          <button className="btn btn-primary">Add record</button>
         </div>
       </div>
 
