@@ -5,6 +5,12 @@ import { Footer } from "./components/Footer/Footer";
 import { Date } from "./components/DatePicker";
 
 export default function Home() {
+  // function openPrompt() {
+  //   const message = prompt("are you sure??");
+
+  // return
+  // }
+
   return (
     // main layout
     <div className="w-[1600px] m-auto text-black bg-slate-400 p-5 gap-10">
@@ -62,24 +68,34 @@ export default function Home() {
         <div className="absolute card w-[792px] h-[512px] bg-orange-200 rounded justify-start items-stretch text-5xl">
           <div className="flex items-center justify-between gap-10 border-2 border-slate-400">
             <h1>Add Record</h1>
-            <h1>Close</h1>
+            <button>Close</button>
           </div>
 
           <div className="flex gap-10 justify-center">
             <div>
+              <select class="select select-bordered w-full max-w-xs">
+                <option disabled selected>
+                  Expense or Income
+                </option>
+                <option>Expense</option>
+                <option>Income</option>
+              </select>
               <p>amount</p>
               <input
                 type="text"
-                placeholder="Type here"
+                placeholder="ex: $1,000"
                 class="input input-bordered w-full max-w-xs"
               />
               <p>category</p>
               <select class="select select-bordered w-full max-w-xs">
                 <option disabled selected>
-                  Who shot first?
+                  Choose Category
                 </option>
-                <option>Han Solo</option>
-                <option>Greedo</option>
+                <option>Utilities</option>
+                <option>Food</option>
+                <option>Car related</option>
+                <option>Health related</option>
+                <option>Loan</option>
               </select>
               <div className="flex gap-5">
                 <div className="flex flex-col gap-3">
@@ -99,14 +115,14 @@ export default function Home() {
               <p>payee</p>
               <select class="select select-bordered w-full max-w-xs">
                 <option disabled selected>
-                  Who shot first?
+                  Write here
                 </option>
                 <option>Han Solo</option>
                 <option>Greedo</option>
               </select>
               <p>note</p>
               <textarea
-                placeholder="Bio"
+                placeholder="Write here"
                 class="textarea textarea-bordered textarea-lg w-full max-w-xs h-[230px]"
               ></textarea>
             </div>
