@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-* {
+/* * {
   box-sizing: border-box;
 }
 
@@ -69,4 +69,61 @@ body {
 
 .container a:hover {
   text-decoration: underline;
+} */
+
+
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  font-family: Arial, sans-serif;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  background-color: #f3f3f3;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+legend {
+  font-size: 1.2em;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="date"] {
+  padding: 6px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1em;
+  width: 100%;
+}
+
+input[type="radio"] {
+  margin-right: 5px;
+}
+
+button[type="submit"] {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 1.2em;
+  margin-top: 10px;
+}
+
+button[type="submit"]:hover {
+  background-color: #45a049;
 }

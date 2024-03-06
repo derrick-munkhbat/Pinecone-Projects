@@ -1,14 +1,38 @@
-import React from "react";
-
-const RecordsTable = () => {
-  // Implement the RecordsTable component using an array of records as its data source
-  // Add the onEditRecord prop as a callback to the table rows or cells
-
+export default function Home() {
   return (
-    <div className="records-table">
-      {/* Render the table rows and cells here */}
-    </div>
+    <form>
+      <div>
+        <label htmlFor="amount">Expense</label>
+        <input type="number" id="amount" />
+      </div>
+      <div>
+        <label htmlFor="category">Amount</label>
+        <input type="text" id="category" />
+      </div>
+      <div>
+        <label htmlFor="date">Date</label>
+        <input type="date" id="date" />
+      </div>
+      <div>
+        <label htmlFor="payee">Choose</label>
+        <select id="payee">
+          <option value="income">Income</option>
+          {/* Add other options here */}
+        </select>
+      </div>
+      <div>
+        <label htmlFor="note">4:15 PM</label>
+        <input type="time" id="note" />
+      </div>
+      <div>
+        <label htmlFor="note">Payee</label>
+        <input type="text" id="note" />
+      </div>
+      <div>
+        <label htmlFor="note">Note</label>
+        <textarea id="note" />
+      </div>
+      <button type="submit">Add Record</button>
+    </form>
   );
-};
-
-export default RecordsTable;
+}
