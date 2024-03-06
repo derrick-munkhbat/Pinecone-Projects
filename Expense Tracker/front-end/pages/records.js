@@ -80,7 +80,7 @@ export default function Home() {
           <div className="absolute card w-[792px] h-[512px] bg-orange-200 rounded justify-start items-stretch text-5xl">
             <div className="flex items-center justify-between gap-10 border-2 border-slate-400">
               <h1>Add Record</h1>
-              <button className="btn btn-primary w-3/4">Close</button>
+              <button>Close</button>
             </div>
 
             <div className="flex gap-10 justify-center">
