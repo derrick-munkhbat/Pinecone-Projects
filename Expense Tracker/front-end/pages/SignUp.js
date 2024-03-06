@@ -1,3 +1,5 @@
+import SignUpCSS from "./components/SignUp.module.css";
+
 export default function SignUp() {
   return (
     <div className="container">
