@@ -4,6 +4,7 @@ import { Footer } from "./components/Footer/Footer";
 // import {DatePicker} from "./components/DatePicker";
 import { Date } from "./components/DatePicker";
 import { useState } from "react";
+import axios from "axios";
 
 export default function Home() {
   const [isShowModal, setIsShowModal] = useState(false);
@@ -11,6 +12,15 @@ export default function Home() {
 
   const createTransaction = () => {
     console.log(amount);
+    axios
+      .post("http://localhost:3000/create-transaction", amount)
+      .then((response) => {
+        console.log("Transaction created successfully");
+        console.log(response.data);
+      })
+      .catch((error) => {
+        console.error("Error creating transaction:", error.message);
+      });
   };
 
   const handleAmountChange = (event) => {

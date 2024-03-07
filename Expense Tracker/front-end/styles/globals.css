@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+
+/* SIGN-IN */
 /* * {
   box-sizing: border-box;
 }
@@ -72,7 +74,11 @@ body {
 } */
 
 
-.container {
+
+
+
+/* FORM */
+/* .container {
   max-width: 600px;
   margin: 0 auto;
   font-family: Arial, sans-serif;
@@ -126,4 +132,4 @@ button[type="submit"] {
 
 button[type="submit"]:hover {
   background-color: #45a049;
-}
+} */
