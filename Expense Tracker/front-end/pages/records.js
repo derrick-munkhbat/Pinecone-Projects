@@ -10,26 +10,31 @@ export default function Home() {
   const [isShowModal, setIsShowModal] = useState(false);
   const [amount, setAmount] = useState(0);
 
-  const createTransaction = () => {
-    console.log(amount);
-    axios
-      .post("http://localhost:3000/create-transaction", amount)
-      .then((response) => {
-        console.log("Transaction created successfully");
-        console.log(response.data);
-      })
-      .catch((error) => {
-        console.error("Error creating transaction:", error.message);
-      });
-  };
+  // const createTransaction = () => {
+  //   console.log(amount);
+  // };
 
   const handleAmountChange = (event) => {
     setAmount(event.target.value);
   };
 
+  function handleSubmit(event) {
+    event.preventDefault();
+    axios
+      .post("http://localhost:3000/create-transaction", { amount })
+      // .then((response)=>{
+      //   alert('succes broda!')
+      //   window.location.reload();
+      // }).catch((err)=>alert('error broda!'))
+
+      .then((response) => console.log(response))
+      .catch((err) => console.log(err));
+  }
+
   const toggleModal = () => {
     setIsShowModal(!isShowModal);
   };
+
   return (
     // main layout
     <div className="w-[1600px] m-auto text-black bg-slate-400 p-5 gap-10">
@@ -87,7 +92,10 @@ export default function Home() {
 
         {/* ADD RECORD FORM */}
         {isShowModal && (
-          <div className="absolute card w-[792px] h-[512px] bg-orange-200 rounded justify-start items-stretch text-5xl">
+          <form
+            onChange={handleSubmit}
+            className="absolute card w-[792px] h-[512px] bg-orange-200 rounded justify-start items-stretch text-5xl"
+          >
             <div className="flex items-center justify-between gap-10 border-2 border-slate-400">
               <h1>Add Record</h1>
               <button>Close</button>
@@ -134,7 +142,7 @@ export default function Home() {
                 <div className="flex justify-center">
                   <button
                     className="btn btn-primary w-3/4"
-                    onClick={createTransaction}
+                    // onClick={createTransaction}
                   >
                     Sumbit
                   </button>
@@ -156,7 +164,7 @@ export default function Home() {
                 ></textarea>
               </div>
             </div>
-          </div>
+          </form>
         )}
       </div>
 
