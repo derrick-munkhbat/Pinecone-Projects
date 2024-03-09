@@ -12,7 +12,8 @@ export default function Home() {
           <input
             type="search"
             placeholder="Search"
-            className="py-2 px-4 rounded w-full"
+            className="py-2 px-4 rounded w-full border rounded"
+
           />
         </div>
 
