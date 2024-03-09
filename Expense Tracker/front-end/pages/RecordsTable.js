@@ -1,38 +1,156 @@
+import { Form } from "./components/Form";
+
 export default function Home() {
   return (
-    <form>
-      <div>
-        <label htmlFor="amount">Expense</label>
-        <input type="number" id="amount" />
+    <div className="flex p-5">
+      <div className="flex flex-col p-5 justify-start">
+        <div className="flex flex-col gap-1">
+          <span className="text-2xl font-bold">Records</span>
+          <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+            Add
+          </button>
+          <input
+            type="search"
+            placeholder="Search"
+            className="py-2 px-4 rounded w-full"
+          />
+        </div>
+
+        <div className="">
+          {/* TYPES */}
+          <div className="flex flex-col gap-1">
+            <span className="font-bold">Types</span>
+            <button className="bg-gray-300 hover:bg-gray-400 text-gray-800 py-2 px-4 rounded ">
+              All
+            </button>
+            <button className="bg-gray-300 hover:bg-gray-400 text-gray-800 py-2 px-4 rounded ">
+              Income
+            </button>
+            <button className="bg-gray-300 hover:bg-gray-400 text-gray-800 py-2 px-4 rounded ">
+              Expense
+            </button>
+          </div>
+
+          {/* CATEGORY */}
+          <div className="flex flex-col gap-1">
+            <span className="font-bold">Category</span>
+            <button className="bg-gray-300 hover:bg-gray-400 text-gray-800 py-2 px-4 rounded ">
+              Food & Drinks
+            </button>
+            <button className="bg-gray-300 hover:bg-gray-400 text-gray-800 py-2 px-4 rounded ">
+              Shopping
+            </button>
+            <button className="bg-gray-300 hover:bg-gray-400 text-gray-800 py-2 px-4 rounded ">
+              Housing
+            </button>
+            <button className="bg-gray-300 hover:bg-gray-400 text-gray-800 py-2 px-4 rounded ">
+              Transportation
+            </button>
+            <button className="bg-gray-300 hover:bg-gray-400 text-gray-800 py-2 px-4 rounded ">
+              Vehicle
+            </button>
+            <button className="bg-gray-300 hover:bg-gray-400 text-gray-800 py-2 px-4 rounded ">
+              Life & Entertainment
+            </button>
+            <button className="bg-gray-300 hover:bg-gray-400 text-gray-800 py-2 px-4 rounded ">
+              Communication, PC
+            </button>
+            <button className="bg-gray-300 hover:bg-gray-400 text-gray-800 py-2 px-4 rounded ">
+              Financial expenses
+            </button>
+            <button className="bg-gray-300 hover:bg-gray-400 text-gray-800 py-2 px-4 rounded ">
+              Investments
+            </button>
+            <button className="bg-gray-300 hover:bg-gray-400 text-gray-800 py-2 px-4 rounded ">
+              Income
+            </button>
+            <button className="bg-gray-300 hover:bg-gray-400 text-gray-800 py-2 px-4 rounded ">
+              Others
+            </button>
+          </div>
+
+          {/* AMOUNT RANGE */}
+          <div className="flex items-center gap-1">
+            <span className="font-bold">Amount Range</span>
+            <button className="bg-gray-300 hover:bg-gray-400 text-gray-800 py-2 px-4 rounded ">
+              0
+            </button>
+            <button className="bg-gray-300 hover:bg-gray-400 text-gray-800 py-2 px-4 rounded ">
+              1000
+            </button>
+          </div>
+        </div>
       </div>
-      <div>
-        <label htmlFor="category">Amount</label>
-        <input type="text" id="category" />
+
+      <div className="p-4">
+        <div className="overflow-x-auto">
+          <table className="min-w-full divide-y divide-gray-200">
+            <thead className="bg-gray-50">
+              <tr>
+                <th
+                  scope="col"
+                  className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                >
+                  Amount
+                </th>
+                <th
+                  scope="col"
+                  className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                >
+                  Category
+                </th>
+                <th
+                  scope="col"
+                  className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                >
+                  Date
+                </th>
+              </tr>
+            </thead>
+            <tbody className="bg-white divide-y divide-gray-200">
+              <tr>
+                <td className="px-6 py-4 whitespace-nowrap">
+                  <div className="text-sm text-gray-900">- 35,5007</div>
+                </td>
+                <td className="px-6 py-4 whitespace-nowrap">
+                  <div className="text-sm text-gray-900">Lending & Renting</div>
+                </td>
+                <td className="px-6 py-4 whitespace-nowrap">
+                  <div className="text-sm text-gray-900">14:00</div>
+                </td>
+              </tr>
+              <tr>
+                <td className="px-6 py-4 whitespace-nowrap">
+                  <div className="text-sm text-gray-900">1,000 *</div>
+                </td>
+                <td className="px-6 py-4 whitespace-nowrap">
+                  <div className="text-sm text-gray-900">Food & Drinks</div>
+                </td>
+                <td className="px-6 py-4 whitespace-nowrap">
+                  <div className="text-sm text-gray-900">Food & Drinks</div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div>
+          
+          <Form/>
+        </div>
+        
+
+
       </div>
-      <div>
-        <label htmlFor="date">Date</label>
-        <input type="date" id="date" />
-      </div>
-      <div>
-        <label htmlFor="payee">Choose</label>
-        <select id="payee">
-          <option value="income">Income</option>
-          {/* Add other options here */}
-        </select>
-      </div>
-      <div>
-        <label htmlFor="note">4:15 PM</label>
-        <input type="time" id="note" />
-      </div>
-      <div>
-        <label htmlFor="note">Payee</label>
-        <input type="text" id="note" />
-      </div>
-      <div>
-        <label htmlFor="note">Note</label>
-        <textarea id="note" />
-      </div>
-      <button type="submit">Add Record</button>
-    </form>
+
+    {/* FORM */}
+    
+
+
+
+
+
+
+    </div>
   );
 }

@@ -18,10 +18,11 @@ export default function Home() {
     event.preventDefault();
     axios
       .post("http://localhost:3000/create-transaction", { amount })
-      .then((response)=>{
-        alert('succes broda!')
+      .then((response) => {
+        alert("succes broda!");
         window.location.reload();
-      }).catch((err)=>alert('error broda!'))
+      })
+      .catch((err) => alert("error broda!"));
   }
 
   const toggleModal = () => {
@@ -84,7 +85,82 @@ export default function Home() {
         </div>
 
         {/* ADD RECORD FORM */}
-        {isShowModal && (
+        {/* {isShowModal && (
+        <div className="absolute bg-orange-200 card w-full max-w-md mx-auto text-center">
+          <h2 className="text-3xl font-semibold text-gray-800">Add Record</h2>
+          <form
+          //  onSubmit={handleSubmit} 
+           className="bg-white p-6 rounded shadow-md">
+      <div className="mb-4">
+        <label htmlFor="payee" className="block text-gray-700 font-bold mb-2">
+          Payee
+        </label>
+        <input
+          type="text"
+          id="payee"
+          className="appearance-none border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline"
+          // value={payee}
+          // onChange={(e) => setPayee(e.target.value)}
+        />
+      </div>
+
+      <div className="mb-4">
+        <label htmlFor="expenseOrIncome" className="block text-gray-700 font-bold mb-2">
+          Expense / Income
+        </label>
+        <div className="relative">
+          <select
+            id="expenseOrIncome"
+            className="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+            // value={expenseOrIncome}
+            // onChange={(e) => setExpenseOrIncome(e.target.value)}
+          >
+            <option value="Expense">Expense</option>
+            <option value="Income">Income</option>
+          </select>
+          <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+            <svg
+              className="fill-current h-4 w-4"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 20 20"
+            >
+              <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.657 6.586 4.293 7.95l.707.707L10 13.172z" />
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      <div className="mb-4">
+        <label htmlFor="amount" className="block text-gray-700 font-bold mb-2">
+          Amount
+        </label>
+        <input
+          type="number"
+          id="amount"
+          step="0.01"
+          className="appearance-none border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline"
+          // value={amount}
+          // onChange={(e) => setAmount(e.target.value)}
+        />
+      </div>
+
+      <div className="mb-4">
+        <label htmlFor="category" className="block text-gray-700 font-bold mb-2">
+          Category
+        </label>
+        <input
+          type="text"
+          id="category"
+          className="appearance-none border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline"
+          // value={category}
+          // onChange={(e) => setCategory(e.target.value)}
+        />
+            </div>
+          </form>
+        </div>
+        )} */}
+
+        {/* {isShowModal && (
           <form
             // onChange={createNewTransaction}
             className="absolute card w-[792px] h-[512px] bg-orange-200 rounded justify-start items-stretch text-5xl"
@@ -158,7 +234,7 @@ export default function Home() {
               </div>
             </div>
           </form>
-        )}
+        )} */}
       </div>
 
       <div className="flex justify-center h-[60px] p-3 mb-10">
