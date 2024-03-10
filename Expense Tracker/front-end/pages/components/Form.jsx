@@ -1,5 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
+import { Date } from "./DatePicker";
 
 export function Form() {
   const [amount, setAmount] = useState(0);
@@ -19,7 +20,7 @@ export function Form() {
   }
 
   return (
-    <div className="absolute bg-orange-200 card w-full max-w-md mx-auto text-center">
+    <div className="absolute bg-orange-200 card mx-auto text-center">
       <h2 className="text-3xl font-semibold text-gray-800">Add Record</h2>
 
       <form
@@ -100,6 +101,16 @@ export function Form() {
               <option value="shopping">Others</option>
               <option value="shopping">+ Add Category</option>
             </select>
+          </div>
+
+          <div>
+            <label
+              htmlFor="date"
+              className="block text-gray-700 font-bold mb-2"
+            >
+              Choose Date
+            </label>
+            <Date />
           </div>
 
           <div className="flex justify-center">

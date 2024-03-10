@@ -160,7 +160,7 @@ export default function Home() {
         </div>
         )} */}
 
-        {/* {isShowModal && (
+        {isShowModal && (
           <form
             // onChange={createNewTransaction}
             className="absolute card w-[792px] h-[512px] bg-orange-200 rounded justify-start items-stretch text-5xl"
@@ -234,7 +234,7 @@ export default function Home() {
               </div>
             </div>
           </form>
-        )} */}
+        )}
       </div>
 
       <div className="flex justify-center h-[60px] p-3 mb-10">

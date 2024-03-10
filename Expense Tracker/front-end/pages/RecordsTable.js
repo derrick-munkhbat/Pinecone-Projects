@@ -1,19 +1,27 @@
 import { Form } from "./components/Form";
+import { useState } from "react";
 
 export default function Home() {
+  const [isShowModal, setIsShowModal] = useState(false);
+  const toggleModal = () => {
+    setIsShowModal(!isShowModal);
+  };
+
   return (
     <div className="flex p-5">
       <div className="flex flex-col p-5 justify-start">
         <div className="flex flex-col gap-1">
           <span className="text-2xl font-bold">Records</span>
-          <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+          <button
+            onClick={toggleModal}
+            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+          >
             Add
           </button>
           <input
             type="search"
             placeholder="Search"
             className="py-2 px-4 rounded w-full border rounded"
-
           />
         </div>
 
@@ -71,7 +79,7 @@ export default function Home() {
           </div>
 
           {/* AMOUNT RANGE */}
-          <div className="flex items-center gap-1">
+          <div className="flex items-center gap-1 p-2">
             <span className="font-bold">Amount Range</span>
             <button className="bg-gray-300 hover:bg-gray-400 text-gray-800 py-2 px-4 rounded ">
               0
@@ -136,22 +144,11 @@ export default function Home() {
         </div>
 
         <div>
-          
-          <Form/>
+          <Form />
         </div>
-        
-
-
       </div>
 
-    {/* FORM */}
-    
-
-
-
-
-
-
+      {/* FORM */}
     </div>
   );
 }

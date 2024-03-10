@@ -8,7 +8,7 @@ import "react-datepicker/dist/react-datepicker.css";
 export function Date (){
   const [startDate, setStartDate] = useState(null);
   return (
-    <div className="text-sm mb-10">
+    <div className="text-lg mb-10 border rounded ">
       <DatePicker selected={startDate} onChange={date => setStartDate(date)} />
     </div>
   );
