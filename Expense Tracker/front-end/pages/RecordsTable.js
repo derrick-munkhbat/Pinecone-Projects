@@ -9,6 +9,7 @@ export default function Home() {
 
   return (
     <div className="flex p-5">
+      {/* LEFT-BAR */}
       <div className="flex flex-col p-5 justify-start">
         <div className="flex flex-col gap-1">
           <span className="text-2xl font-bold">Records</span>
@@ -91,6 +92,7 @@ export default function Home() {
         </div>
       </div>
 
+      {/* RIGHT-BAR */}
       <div className="p-4">
         <div className="overflow-x-auto">
           <table className="min-w-full divide-y divide-gray-200">
@@ -119,33 +121,31 @@ export default function Home() {
             <tbody className="bg-white divide-y divide-gray-200">
               <tr>
                 <td className="px-6 py-4 whitespace-nowrap">
-                  <div className="text-sm text-gray-900">- 35,5007</div>
+                  <div className="text-sm text-gray-900">- 35,500</div>
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap">
                   <div className="text-sm text-gray-900">Lending & Renting</div>
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap">
-                  <div className="text-sm text-gray-900">14:00</div>
+                  <div className="text-sm text-gray-900">3/10/2024 14:00</div>
                 </td>
               </tr>
               <tr>
                 <td className="px-6 py-4 whitespace-nowrap">
-                  <div className="text-sm text-gray-900">1,000 *</div>
+                  <div className="text-sm text-gray-900">1,000</div>
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap">
                   <div className="text-sm text-gray-900">Food & Drinks</div>
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap">
-                  <div className="text-sm text-gray-900">Food & Drinks</div>
+                  <div className="text-sm text-gray-900">3/10/2024 17:00</div>
                 </td>
               </tr>
             </tbody>
           </table>
         </div>
 
-        <div>
-          <Form />
-        </div>
+        <div>{isShowModal && <Form />}</div>
       </div>
 
       {/* FORM */}

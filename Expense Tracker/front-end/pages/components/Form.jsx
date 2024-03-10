@@ -113,12 +113,18 @@ export function Form() {
             <Date />
           </div>
 
-          <div className="flex justify-center">
+          <div className="flex justify-center gap-2">
             <button
               className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
               onClick={createNewTransaction}
             >
               Submit
+            </button>
+            <button
+              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+              onClick={createNewTransaction}
+            >
+              Cancel
             </button>
           </div>
         </div>
