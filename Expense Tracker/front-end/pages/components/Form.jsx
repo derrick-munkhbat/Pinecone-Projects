@@ -20,12 +20,12 @@ export function Form() {
   }
 
   return (
-    <div className="absolute bg-orange-200 card mx-auto text-center">
+    <div className=" bg-orange-200 card mx-auto text-center">
       <h2 className="text-3xl font-semibold text-gray-800">Add Record</h2>
 
       <form
         //  onSubmit={handleSubmit}
-        className="flex bg-white p-6 rounded shadow-md gap-5"
+        className="flex bg-white p-6 rounded shadow-md gap-5 justify-center"
       >
         <div>
           <div className="mb-4">
