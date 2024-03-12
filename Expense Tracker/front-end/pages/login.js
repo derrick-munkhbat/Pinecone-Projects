@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 
-export default function SignIn() {
+export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -14,7 +14,7 @@ export default function SignIn() {
       })
       .then(() => {
         alert("Success");
-        localStorage.setItem("signin", `${email}:${password}`);
+        localStorage.setItem("login", `${email}:${password}`);
         window.location = "/RecordsTable";
       })
       .catch((e) => {

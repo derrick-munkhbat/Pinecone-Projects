@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-export default function SignUp() {
+export default function Signup() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -60,6 +60,12 @@ export default function SignUp() {
         >
           Sign Up
         </button>
+        <p className="mt-6 text-gray-600">
+          Already have an account?{" "}
+          <a href="/SignUp" className="text-blue-500 hover:underline">
+            Log in
+          </a>
+        </p>
       </div>
     </div>
   );
