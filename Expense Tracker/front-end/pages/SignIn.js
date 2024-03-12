@@ -1,50 +1,68 @@
 import React, { useState } from "react";
+import axios from "axios";
 
 export default function SignIn() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Handle form submission logic here
-  };
+  function handleSubmit() {
+    console.log({ email, password });
+    axios
+      .post("http://localhost:3000/signin", {
+        email,
+        password,
+      })
+      .then(() => {
+        alert("Success");
+        localStorage.setItem("signin", `${email}:${password}`);
+        window.location = "/RecordsTable";
+      })
+      .catch((e) => {
+        if (e.response.status === 401) {
+          alert("Username or password is incorrect");
+        }
+      });
+  }
 
   return (
     <div className="w-full max-w-md mx-auto text-center">
       <h2 className="text-3xl font-semibold text-gray-800">Welcome Back</h2>
       <p className="text-gray-600">Welcome back, Please enter your details</p>
-      <form
-        //  onSubmit={handleSubmit}
-        className="mt-6"
-      >
+      <div className="mt-6">
+        {/* EMAIL */}
         <div className="mb-6">
           <input
-            type="email"
+            // type="email"
+            type="text"
             placeholder="Email"
-            // value={email}
-            // onChange={(e) => setEmail(e.target.value)}
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
             className="w-full p-3 border rounded-md border-gray-300 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 focus:outline-none"
           />
         </div>
+
+        {/* PASSWORD */}
         <div className="mb-6">
           <input
             type="password"
             placeholder="Password"
-            // value={password}
-            // onChange={(e) => setPassword(e.target.value)}
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
             className="w-full p-3 border rounded-md border-gray-300 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 focus:outline-none"
           />
         </div>
+
+        {/* LOGIN BUTTON */}
         <button
-          type="submit"
+          onClick={handleSubmit}
           className="w-full p-3 bg-blue-500 text-white rounded-md hover:bg-blue-600 active:bg-blue-700 focus:ring-1 focus:ring-blue-500 focus:outline-none"
         >
-          Log in
+          Sign in
         </button>
-      </form>
+      </div>
       <p className="mt-6 text-gray-600">
         Don't have an account?{" "}
-        <a href="/signup" className="text-blue-500 hover:underline">
+        <a href="/SignUp" className="text-blue-500 hover:underline">
           Sign up
         </a>
       </p>

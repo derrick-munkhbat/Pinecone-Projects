@@ -25,6 +25,26 @@ const port = 3000;
 app.use(express.json());
 app.use(cors());
 
+const dbUserName = "test@gmail.com";
+const dbPassword = "1";
+
+app.post("/signin", (req, res) => {
+  const { email, password } = req.body;
+  
+  if(email !== dbUserName){
+    res.sendStatus(401);
+    return;
+  }
+
+  if (password !== dbPassword){
+    res.sendStatus(401);
+    return;
+  }
+
+  console.log({email, password});
+  res.json(["Successs"]);
+});
+
 app.get("/", async (req, res) => {
   res.send("Hello there, backend running");
 });
