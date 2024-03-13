@@ -1,6 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 import { Date } from "./DatePicker";
+import { Toggle } from "./Toggle";
 
 export function Form() {
   const [amount, setAmount] = useState(0);
@@ -20,7 +21,7 @@ export function Form() {
   }
 
   return (
-    <div className=" bg-orange-200 card mx-auto text-center">
+    <div className=" bg-blue-500 card mx-auto text-center">
       <h2 className="text-3xl font-semibold text-gray-800">Add Record</h2>
 
       <form
@@ -28,33 +29,8 @@ export function Form() {
         className="flex bg-white p-6 rounded shadow-md gap-5 justify-center"
       >
         <div>
-          <div className="mb-4">
-            <label
-              htmlFor="expenseOrIncome"
-              className="block text-gray-700 font-bold mb-2"
-            >
-              Expense / Income
-            </label>
-            <div className="relative">
-              <select
-                id="expenseOrIncome"
-                className="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                // value={expenseOrIncome}
-                // onChange={(e) => setExpenseOrIncome(e.target.value)}
-              >
-                <option value="Expense">Expense</option>
-                <option value="Income">Income</option>
-              </select>
-              <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-                <svg
-                  className="fill-current h-4 w-4"
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 20 20"
-                >
-                  <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.657 6.586 4.293 7.95l.707.707L10 13.172z" />
-                </svg>
-              </div>
-            </div>
+          <div className="flex justify-center">
+            <Toggle />
           </div>
 
           <div className="mb-4">
@@ -90,16 +66,16 @@ export function Form() {
             >
               <option value="food-drinks">Food & Drinks</option>
               <option value="shopping">Shopping</option>
-              <option value="shopping">Housing</option>
-              <option value="shopping">Transportation</option>
-              <option value="shopping">Vehicle</option>
-              <option value="shopping">Life & Entertainment</option>
-              <option value="shopping">Communication, PC</option>
-              <option value="shopping">Financial expenses</option>
-              <option value="shopping">Investments</option>
-              <option value="shopping">Income</option>
-              <option value="shopping">Others</option>
-              <option value="shopping">+ Add Category</option>
+              <option value="housing">Housing</option>
+              <option value="transportation">Transportation</option>
+              <option value="vehicle">Vehicle</option>
+              <option value="life-entertainment">Life & Entertainment</option>
+              <option value="communication-pc">Communication, PC</option>
+              <option value="financial">Financial expenses</option>
+              <option value="investment">Investments</option>
+              <option value="income">Income</option>
+              <option value="other">Others</option>
+              <option value="others">+ Add Category</option>
             </select>
           </div>
 
@@ -108,7 +84,7 @@ export function Form() {
               htmlFor="date"
               className="block text-gray-700 font-bold mb-2"
             >
-              Choose Date
+              Choose date & time
             </label>
             <Date />
           </div>
@@ -118,7 +94,7 @@ export function Form() {
               className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
               onClick={createNewTransaction}
             >
-              Submit
+              Add Record
             </button>
             <button
               className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"

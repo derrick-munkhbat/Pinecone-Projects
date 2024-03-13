@@ -1,6 +1,7 @@
 import { Cards } from "./components/Cards";
 import { Form } from "./components/Form";
 import { useState } from "react";
+import { CheckBox } from "./components/CheckBox";
 
 export default function Home() {
   const [isShowModal, setIsShowModal] = useState(false);
@@ -31,15 +32,15 @@ export default function Home() {
           {/* TYPES */}
           <div className="flex flex-col gap-1">
             <span className="font-bold">Types</span>
-            <button className="bg-gray-300 hover:bg-gray-400 text-gray-800 py-2 px-4 rounded ">
-              All
-            </button>
-            <button className="bg-gray-300 hover:bg-gray-400 text-gray-800 py-2 px-4 rounded ">
+            <div className="flex bg-gray-300 hover:bg-gray-400 text-gray-800 py-2 px-4 rounded ">
+              <CheckBox />
+            </div>
+            <div className="bg-gray-300 hover:bg-gray-400 text-gray-800 py-2 px-4 rounded ">
               Income
-            </button>
-            <button className="bg-gray-300 hover:bg-gray-400 text-gray-800 py-2 px-4 rounded ">
+            </div>
+            <div className="bg-gray-300 hover:bg-gray-400 text-gray-800 py-2 px-4 rounded ">
               Expense
-            </button>
+            </div>
           </div>
 
           {/* CATEGORY */}
