@@ -6,18 +6,16 @@ export default function Login() {
   const [password, setPassword] = useState("");
 
   function handleSubmit() {
-    console.log({ email, password });
+    console.log(email, password);
+
     axios
-      .post("http://localhost:3000/signin", {
-        email,
-        password,
+      .post("http://localhost:3001/login", { email, password })
+      .then((res) => {
+        if (res.data === "Logged In") {
+          // window.location.href='/records';
+        }
       })
-      .then(() => {
-        alert("Success");
-        localStorage.setItem("login", `${email}:${password}`);
-        window.location = "/RecordsTable";
-      })
-      .catch((e) => {
+      .catch((_error) => {
         if (e.response.status === 401) {
           alert("Username or password is incorrect");
         }
@@ -57,12 +55,12 @@ export default function Login() {
           onClick={handleSubmit}
           className="w-full p-3 bg-blue-500 text-white rounded-md hover:bg-blue-600 active:bg-blue-700 focus:ring-1 focus:ring-blue-500 focus:outline-none"
         >
-          Sign in
+          Log in
         </button>
       </div>
       <p className="mt-6 text-gray-600">
         Don't have an account?{" "}
-        <a href="/SignUp" className="text-blue-500 hover:underline">
+        <a href="/signup" className="text-blue-500 hover:underline">
           Sign up
         </a>
       </p>

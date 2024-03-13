@@ -1,3 +1,4 @@
+import axios from "axios";
 import React, { useState } from "react";
 
 export default function Signup() {
@@ -6,10 +7,21 @@ export default function Signup() {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
 
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   // Handle form submission logic here
-  // };
+  const createNewUser = (e) => {
+    e.preventDefault();
+    if (password !== confirmPassword) {
+      alert("Passwords do not match.");
+    } else {
+      axios
+        .post("http://localhost:3000/create-user", { name, email, password })
+        .then((response) => {
+          alert("signup successful!");
+          console.log(response);
+          window.location.href = "/login";
+        })
+        .catch((error) => alert("error sorry"));
+    }
+  }
 
   return (
     <div className="w-full max-w-md mx-auto text-center">
@@ -30,8 +42,8 @@ export default function Signup() {
           <input
             type="email"
             placeholder="Email"
-            // value={email}
-            // onChange={(e) => setEmail(e.target.value)}
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
             className="w-full p-3 border rounded-md border-gray-300 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 focus:outline-none"
           />
         </div>
@@ -39,8 +51,8 @@ export default function Signup() {
           <input
             type="password"
             placeholder="Password"
-            // value={password}
-            // onChange={(e) => setPassword(e.target.value)}
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
             className="w-full p-3 border rounded-md border-gray-300 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 focus:outline-none"
           />
         </div>
@@ -48,13 +60,13 @@ export default function Signup() {
           <input
             type="password"
             placeholder="Re-enter Password"
-            // value={confirmPassword}
-            // onChange={(e) => setConfirmPassword(e.target.value)}
+            value={confirmPassword}
+            onChange={(e) => setConfirmPassword(e.target.value)}
             className="w-full p-3 border rounded-md border-gray-300 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 focus:outline-none"
           />
         </div>
         <button
-          //  onClick={handleSubmit}
+          onClick={createNewUser}
           type="submit"
           className="w-full p-3 bg-blue-500 text-white rounded-md hover:bg-blue-600 active:bg-blue-700 focus:ring-1 focus:ring-blue-500 focus:outline-none"
         >
@@ -62,7 +74,7 @@ export default function Signup() {
         </button>
         <p className="mt-6 text-gray-600">
           Already have an account?{" "}
-          <a href="/SignUp" className="text-blue-500 hover:underline">
+          <a href="/login" className="text-blue-500 hover:underline">
             Log in
           </a>
         </p>

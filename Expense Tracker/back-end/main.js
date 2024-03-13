@@ -25,23 +25,22 @@ const port = 3000;
 app.use(express.json());
 app.use(cors());
 
-const dbUserName = "test@gmail.com";
-const dbPassword = "1";
-
-app.post("/signin", (req, res) => {
+app.post("/login", (req, res) => {
   const { email, password } = req.body;
-  
-  if(email !== dbUserName){
+
+  ///
+
+  if (email !== user.email) {
     res.sendStatus(401);
     return;
   }
 
-  if (password !== dbPassword){
+  if (password !== user.password) {
     res.sendStatus(401);
     return;
   }
 
-  console.log({email, password});
+  console.log({ email, password });
   res.json(["Successs"]);
 });
 
@@ -51,10 +50,12 @@ app.get("/", async (req, res) => {
 
 //USER POST
 app.post("/create-user", async (req, res) => {
-  const { name, email, password, avatar_img } = req.body;
+  const { name, email, password } = req.body;
+  // console.log(req.body);
   const response =
-    await sql`insert into users (name, email, password, avatar_img) values (${name}, ${email}, ${password}, ${avatar_img})`;
+    await sql`insert into users (name, email, password) values (${name}, ${email}, ${password})`;
   res.json(response);
+  // res.send("ok");
 });
 
 //TRANSACTION POST
