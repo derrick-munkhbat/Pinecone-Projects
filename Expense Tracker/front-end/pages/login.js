@@ -9,19 +9,15 @@ export default function Login() {
     console.log(email, password);
 
     axios
-      .post("http://localhost:3001/login", { 
-        email, 
-        password, 
+      .post("http://localhost:3001/login", {
+        email,
+        password,
       })
       .then((res) => {
         localStorage.setItem("login, `${email}:${password}`");
-          // window.location.href='/records';
+        // window.location.href='/records';
       })
-      .catch((e) => {
-        if (e.response.status === 401) {
-          alert("Username or password is incorrect");
-        }
-      });
+      .catch((err) => alert("Invalid Email or Password"));
   }
 
   return (
