@@ -27,7 +27,7 @@ const port = 3000;
 app.use(express.json());
 app.use(cors());
 
-app.use("/transactions", transactionRouter);
+// app.use("/transactions", transactionRouter);
 app.use("/users", usersRouter);
 
 app.post("/login", (req, res) => {
