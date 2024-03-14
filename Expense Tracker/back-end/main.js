@@ -3,6 +3,8 @@ const fs = require("fs");
 var cors = require("cors");
 const postgres = require("postgres");
 require("dotenv").config();
+// const transactionRouter = require("./routers/transactionRouter");
+const usersRouter = require("./routers/usersRouter");
 
 let { PGHOST, PGDATABASE, PGUSER, PGPASSWORD, ENDPOINT_ID } = process.env;
 PGDATABASE = decodeURIComponent(PGDATABASE);
@@ -25,10 +27,11 @@ const port = 3000;
 app.use(express.json());
 app.use(cors());
 
+app.use("/transactions", transactionRouter);
+app.use("/users", usersRouter);
+
 app.post("/login", (req, res) => {
   const { email, password } = req.body;
-
-  ///
 
   if (email !== user.email) {
     res.sendStatus(401);

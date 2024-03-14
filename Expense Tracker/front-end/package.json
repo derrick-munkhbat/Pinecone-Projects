@@ -1,5 +1,5 @@
 {
-  "name": "expense-tracker-ui",
+  "name": "front-end",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -10,10 +10,13 @@
   },
   "dependencies": {
     "axios": "^1.6.7",
+    "chart": "^0.1.2",
     "datepicker": "^0.0.0",
     "dayjs": "^1.11.10",
+    "js": "^0.1.0",
     "next": "14.1.0",
     "react": "^18",
+    "react-chart": "^0.0.1",
     "react-datepicker": "^6.2.0",
     "react-dom": "^18"
   },
