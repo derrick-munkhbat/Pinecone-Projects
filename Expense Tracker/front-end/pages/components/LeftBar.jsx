@@ -4,7 +4,6 @@ import { NewRecordButton } from "./NewRecordButton";
 export function LeftBar() {
   return (
     <>
-      {/* LEFT-BAR */}
       <div className="flex flex-col p-5 justify-start">
         <div className="flex flex-col gap-1">
           <span className="text-2xl font-bold">Records</span>

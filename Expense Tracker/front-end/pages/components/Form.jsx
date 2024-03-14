@@ -96,10 +96,7 @@ export function Form() {
             >
               Add Record
             </button>
-            <button
-              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-              onClick={createNewTransaction}
-            >
+            <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
               Cancel
             </button>
           </div>
