@@ -1,8 +1,8 @@
-import { Cards } from "./components/Cards";
-import { Header } from "./components/Header/Header";
-import { Footer } from "./components/Footer/Footer";
+import { Cards } from "../components/Cards";
+import { Header } from "../components/Header/Header";
+import { Footer } from "../components/Footer/Footer";
 // import {DatePicker} from "./components/DatePicker";
-import { Date } from "./components/DatePicker";
+import { Date } from "../components/DatePicker";
 import { useState } from "react";
 import axios from "axios";
 

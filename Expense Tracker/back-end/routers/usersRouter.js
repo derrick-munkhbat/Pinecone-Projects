@@ -3,33 +3,29 @@ const { sql } = require("../config/database");
 const router = express.Router();
 
 //USER POST
-app.post("/", async (req, res) => {
+router.post("/", async (req, res) => {
   const { name, email, password } = req.body;
   // console.log(req.body);
   const response =
     await sql`insert into users (name, email, password) values (${name}, ${email}, ${password})`;
   res.json(response);
-  // res.send("ok");
 });
 
 //USER DELETE
-app.delete("/:id", async (req, res) => {
+router.delete("/:id", async (req, res) => {
   const { id } = req.params;
   const response = await sql`delete from users where id = ${id}`;
   res.json(response);
 });
 
 //USER UPDATE
-app.put("/:id", async (req, res) => {
+router.put("/:id", async (req, res) => {
   const { id } = req.params;
   const { name, email, password, avatar_img } = req.body;
   const response =
     await sql`update users set name = ${name}, email = ${email}, password = ${password}, avatar_img = ${avatar_img} where id = ${id}`;
   res.json(response);
 });
-
-
-
 
 router.post("/login", async (req, res) => {
   const { email, password } = req.body;

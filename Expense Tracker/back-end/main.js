@@ -1,7 +1,8 @@
 const cors = require("cors");
-const transactionRouter = require("./routers/trandactionRouter");
+const transactionRouter = require("./routers/transactionRouter");
 const categoriesRouter = require("./routers/categoriesRouter");
 const usersRouter = require("./routers/usersRouter");
+const express = require("express");
 
 const app = express();
 const port = 3000;
