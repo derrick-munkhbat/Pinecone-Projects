@@ -20,7 +20,7 @@ export default function Home() {
       .post("http://localhost:3000/create-transaction", { amount })
       .then((response) => {
         alert("succes broda!");
-        window.location.reload();
+        // window.location.reload();
       })
       .catch((err) => alert("error broda!"));
   }

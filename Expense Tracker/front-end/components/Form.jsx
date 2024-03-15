@@ -15,7 +15,7 @@ export function Form() {
       .post("http://localhost:3000/create-transaction", { amount })
       .then((response) => {
         alert("success broda!");
-        window.location.reload();
+        // window.location.reload();
       })
       .catch((err) => alert("error broda!"));
   }

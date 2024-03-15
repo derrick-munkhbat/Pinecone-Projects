@@ -2,6 +2,11 @@ const express = require("express");
 const router = express.Router();
 const { sql } = require("../config/database");
 
+router.get("/", async (req, res) => {
+  const result = await sql`select * from categories`;
+  res.json(result);
+});
+
 //CATEGORY POST
 router.post("/", async (req, res) => {
   const { name } = req.body;

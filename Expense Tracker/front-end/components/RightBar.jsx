@@ -1,31 +1,34 @@
 import { Cards } from "./Cards";
 import { useState } from "react";
 import axios from "axios";
-import { Date } from "./DatePicker";
-import { Toggle } from "./Toggle";
 
 export function RightBar() {
+  const [isExpense, setIsExpense] = useState(true);
   const [isShowModal, setIsShowModal] = useState(false);
 
   const toggleModal = () => {
     setIsShowModal(!isShowModal);
   };
 
-  const [amount, setAmount] = useState(0);
-  const handleAmountChange = (event) => {
-    setAmount(event.target.value);
-  };
+  // const [category, setCategory] = useState("");
+  const [amount, setAmount] = useState("");
 
-  function createNewTransaction(event) {
-    event.preventDefault();
+  function createNewTransaction() {
+    console.log({ amount });
     axios
-      .post("http://localhost:3000/create-transaction", { amount })
-      .then((response) => {
-        alert("success broda!");
-        window.location.reload();
+      .post("http://localhost:3000/transactions", {
+        // category,
+        amount,
       })
-      .catch((err) => alert("error broda!"));
+      .then(() => {
+        alert("success!");
+        // window.location.reload();
+      })
+      .catch((err) => alert("error"));
   }
+
+
+  
 
   return (
     <div className="flex p-4 relative">
@@ -36,6 +39,7 @@ export function RightBar() {
         >
           Add New Record
         </button>
+
         <Cards />
         <Cards />
         <Cards />
@@ -52,10 +56,46 @@ export function RightBar() {
         <div className="absolute bg-blue-500 card mx-auto text-center">
           <h2 className="text-3xl font-semibold text-gray-800">Add Record</h2>
 
-          <form className="flex bg-white p-6 rounded shadow-md gap-5 justify-center">
+          <div className="flex bg-white p-6 rounded shadow-md gap-5 justify-center">
             <div>
               <div className="flex justify-center">
-                <Toggle />
+                {/* TOGGLE */}
+                <div className="flex items-center mb-4">
+                  <label
+                    htmlFor="expense-toggle"
+                    className="block text-gray-700 font-bold p-5"
+                  >
+                    Expense
+                  </label>
+                  <div className="relative">
+                    <input
+                      id="expense-toggle"
+                      type="checkbox"
+                      className="sr-only"
+                      checked={isExpense}
+                      onChange={() => setIsExpense(!isExpense)}
+                    ></input>
+                    <div className="block bg-gray-200 w-24 h-8 rounded-full"></div>
+                    <div
+                      id="expense-dot"
+                      className={`dot absolute left-1 top-1 w-12 h-6 rounded-full transition duration-200 ease-in-out ${
+                        isExpense ? "bg-red-500" : "bg-green-500"
+                      }`}
+                      style={{ left: isExpense ? "1px" : "13px" }}
+                    ></div>
+                  </div>
+                  <label
+                    htmlFor="income-toggle"
+                    className="block text-gray-700 font-bold p-5"
+                  >
+                    Income
+                  </label>
+                  <input
+                    id="income-toggle"
+                    type="checkbox"
+                    className="sr-only"
+                  ></input>
+                </div>
               </div>
 
               <div className="mb-4">
@@ -68,26 +108,23 @@ export function RightBar() {
                 <input
                   type="number"
                   id="amount"
-                  value={amount}
-                  onChange={handleAmountChange}
                   placeholder="ex: $1,000"
                   step="0.01"
                   className="appearance-none border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline"
-                  // value={amount}
-                  // onChange={(e) => setAmount(e.target.value)}
+                  value={amount}
+                  onChange={(e) => setAmount(e.target.value)}
                 />
               </div>
 
               <div className="mb-4">
-                <label
-                  htmlFor="category"
-                  className="block text-gray-700 font-bold mb-2"
-                >
+                <label className="block text-gray-700 font-bold mb-2">
                   Category
                 </label>
                 <select
-                  id="expenseOrIncome"
+                  id="categories"
                   className="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                  // value={category}
+                  // onChange={(e) => setCategory(e.target.value)}
                 >
                   <option value="food-drinks">Food & Drinks</option>
                   <option value="shopping">Shopping</option>
@@ -113,7 +150,7 @@ export function RightBar() {
                 >
                   Choose date & time
                 </label>
-                <Date />
+                {/* <Date /> */}
               </div>
 
               <div className="flex justify-center gap-2">
@@ -125,7 +162,7 @@ export function RightBar() {
                 </button>
                 <button
                   className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-                  onClick={!isShowModal}
+                  onClick={() => setIsShowModal(false)}
                 >
                   Cancel
                 </button>
@@ -164,7 +201,7 @@ export function RightBar() {
                 ></textarea>
               </div>
             </div>
-          </form>
+          </div>
         </div>
       )}
     </div>
