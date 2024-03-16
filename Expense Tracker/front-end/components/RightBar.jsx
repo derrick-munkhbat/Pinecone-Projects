@@ -1,8 +1,36 @@
 import { Cards } from "./Cards";
-import { useState } from "react";
+import { use, useState } from "react";
 import axios from "axios";
+import Select from "react-select";
+
+const categories = [
+  {
+    id: 1,
+    name: "home",
+  },
+  {
+    id: 2,
+    name: "personal",
+  },
+  {
+    id: 3,
+    name: "work",
+  },
+];
+
+const options = categories.map((category) => {
+  return {
+    value: category.category_id,
+    label: category.name,
+  };
+});
+
+console.log({ options });
 
 export function RightBar() {
+  const [category, setCategory] = useState("");
+  const [amount, setAmount] = useState("");
+
   const [isExpense, setIsExpense] = useState(true);
   const [isShowModal, setIsShowModal] = useState(false);
 
@@ -10,15 +38,12 @@ export function RightBar() {
     setIsShowModal(!isShowModal);
   };
 
-  // const [category, setCategory] = useState("");
-  const [amount, setAmount] = useState("");
-
   function createNewTransaction() {
-    console.log({ amount });
+    console.log({ amount, category });
     axios
       .post("http://localhost:3000/transactions", {
-        // category,
         amount,
+        category,
       })
       .then(() => {
         alert("success!");
@@ -26,9 +51,6 @@ export function RightBar() {
       })
       .catch((err) => alert("error"));
   }
-
-
-  
 
   return (
     <div className="flex p-4 relative">
@@ -120,11 +142,11 @@ export function RightBar() {
                 <label className="block text-gray-700 font-bold mb-2">
                   Category
                 </label>
-                <select
+                <Select
                   id="categories"
-                  className="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                  // value={category}
-                  // onChange={(e) => setCategory(e.target.value)}
+                  className="block appearance-none w-full border border-gray-200 text-gray-700 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                  value={category}
+                  onChange={(e) => setCategory(e.target.value)}
                 >
                   <option value="food-drinks">Food & Drinks</option>
                   <option value="shopping">Shopping</option>
@@ -140,7 +162,7 @@ export function RightBar() {
                   <option value="income">Income</option>
                   <option value="other">Others</option>
                   <option value="others">+ Add Category</option>
-                </select>
+                </Select>
               </div>
 
               <div>
