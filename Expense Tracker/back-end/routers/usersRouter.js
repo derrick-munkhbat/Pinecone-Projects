@@ -13,23 +13,23 @@ router.post("/", async (req, res) => {
   // console.log(req.body);
   const response =
     await sql`insert into users (name, email, password) values (${name}, ${email}, ${password})`;
-  res.json(response);
+  res.json([{ status: "success" }]);
 });
 
 //USER DELETE
 router.delete("/:id", async (req, res) => {
   const { id } = req.params;
-  const response = await sql`delete from users where id = ${id}`;
-  res.json(response);
+  await sql`delete from users where id = ${id}`;
+  res.json([{ status: "success" }]);
 });
 
 //USER UPDATE
 router.put("/:id", async (req, res) => {
   const { id } = req.params;
-  const { name, email, password, avatar_img } = req.body;
+  const { name, email, password } = req.body;
   const response =
-    await sql`update users set name = ${name}, email = ${email}, password = ${password}, avatar_img = ${avatar_img} where id = ${id}`;
-  res.json(response);
+    await sql`update users set name = ${name}, email = ${email}, password = ${password} where id = ${id}`;
+  res.json([{ status: "success" }]);
 });
 
 // router.post("/login", async (req, res) => {

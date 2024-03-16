@@ -10,24 +10,23 @@ router.get("/", async (req, res) => {
 //CATEGORY POST
 router.post("/", async (req, res) => {
   const { name } = req.body;
-  const response = await sql`insert into categories (name) values (${name})`;
-  res.json(response);
+  await sql`insert into categories (name) values (${name})`;
+  res.json([{ status: "success" }]);
 });
 
 //CATEGORY DELETE
 router.delete("/:id", async (req, res) => {
   const { id } = req.params;
-  const response = await sql`delete from categories where category_id = ${id}`;
-  res.json(response);
+  await sql`delete from categories where category_id = ${id}`;
+  res.json([{ status: "success" }]);
 });
 
 //CATEGORY UPDATE
 router.put("/:id", async (req, res) => {
   const { id } = req.params;
   const { name } = req.body;
-  const response =
-    await sql`update categories set name = ${name} where category_id = ${id}`;
-  res.json(response);
+  await sql`update categories set name = ${name} where category_id = ${id}`;
+  res.json([{ status: "success" }]);
 });
 
 module.exports = router;
