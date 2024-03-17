@@ -1,5 +1,4 @@
-import { Cards } from "./Cards";
-import { use, useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 import Select from "react-select";
 
@@ -30,6 +29,7 @@ console.log({ options });
 export function RightBar() {
   const [category, setCategory] = useState("");
   const [amount, setAmount] = useState("");
+  const [transactions, setTransactions] = useState("");
 
   const [isExpense, setIsExpense] = useState(true);
   const [isShowModal, setIsShowModal] = useState(false);
@@ -37,6 +37,16 @@ export function RightBar() {
   const toggleModal = () => {
     setIsShowModal(!isShowModal);
   };
+
+  function loadTask() {
+    axios.get("http://localhost:3000/transactions").then((response) => {
+      setTransactions(response.data);
+    });
+  }
+
+  useEffect(() => {
+    loadTask();
+  }, []);
 
   function createNewTransaction() {
     console.log({ amount, category });
@@ -47,6 +57,7 @@ export function RightBar() {
       })
       .then(() => {
         alert("success!");
+        loadTask();
         // window.location.reload();
       })
       .catch((err) => alert("error"));
@@ -61,16 +72,29 @@ export function RightBar() {
         >
           Add New Record
         </button>
-
-        <Cards />
-        <Cards />
-        <Cards />
-        <Cards />
-        <Cards />
-        <Cards />
-        <Cards />
-        <Cards />
-        <Cards />
+        {/* CARDS */}
+        {transactions.map((transaction) => (
+          <div
+            key={transaction.transaction_id}
+            className="container w-[600px] my-3 border rounded"
+          >
+            <div className="mb-2 bg-base-100">
+              <div className="card-body-sm">
+                <div className="flex gap-5 items-center p-2">
+                  <input
+                    type="checkbox"
+                    className="checkbox checkbox-md ml-4"
+                  />
+                  <div className="flex-1">
+                    <h2 className="text-xl">category</h2>
+                    <h2>date and time</h2>
+                  </div>
+                  <div className=" text-xl mr-4">{transaction.amount}</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
       </div>
 
       {/* FORM */}
