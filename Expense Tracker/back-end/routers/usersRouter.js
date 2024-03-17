@@ -1,6 +1,7 @@
 const express = require("express");
 const { sql } = require("../config/database");
 const router = express.Router();
+const bcrypt = require("bcryptjs");
 
 router.get("/", async (req, res) => {
   const result = await sql`select * from users`;
@@ -32,32 +33,40 @@ router.put("/:id", async (req, res) => {
   res.json([{ status: "success" }]);
 });
 
-// router.post("/login", async (req, res) => {
-//   const { email, password } = req.body;
+router.post("/login", async (req, res) => {
+  const { email, password } = req.body;
 
-//   //check duplicate email
-//   const users = await sql`SELECT * FROM users WHERE email=${email}`;
-//   if (users.length > 0) {
-//     res.status(400).json({ message: "User already exists" });
-//     return;
-//   }
+  const users = await sql`SELECT * FROM users WHERE email=${email}`;
 
-//   //password validation
-//   if (password.length < 8) {
-//     res.status(400).json({ message: "more than 8 letters" });
-//     return;
-//   }
+  if (users.password === password) {
+    res.json(user[0]);
+  } else {
+    res.status(500).json({ message: "ur password is wrong." });
+  }
+});
 
-//   //register user
-//   await sql`insert into users(id, email, password)`;
+router.post("/signup", async (req, res) => {
+  const { name, email, password } = req.body;
 
-//   const user = await sql`SELECT * FROM users WHERE email=${email}`;
+  //check duplicate email
+  const users = await sql`SELECT * FROM users WHERE email=${email}`;
+  if (users.length > 0) {
+    res.status(400).json({ message: "User already exists" });
+    return;
+  }
 
-//   if (user.password === password) {
-//     res.json(user[0]);
-//   } else {
-//     res.status(500).json({ message: "tani ner nuuts ug buruu baina" });
-//   }
-// });
+  //password validation
+  if (password.length < 8) {
+    res.status(400).json({ message: "more than 8 letters" });
+    return;
+  }
+
+  //register user
+  const hash = bcrypt.hashSync(password, 8);
+  await sql`insert into users(name, email, password) values (${name},${email},${hash})`;
+
+  //success response
+  res.status(400).json({ message: "registered" });
+});
 
 module.exports = router;
