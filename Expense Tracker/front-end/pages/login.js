@@ -13,11 +13,16 @@ export default function Login() {
         email,
         password,
       })
-      .then((res) => {
-        localStorage.setItem("login, `${email}:${password}`");
-        // window.location.href='/records';
+      .then(() => {
+        alert("Success");
+        localStorage.setItem("login", `${email}:${password}`);
+        window.location.href='/records';
       })
-      .catch((err) => alert("Invalid Email or Password"));
+      .catch((e) => {
+        if (e.response.status === 401) {
+          alert("Wrong Email or Password!");
+        }
+      });
   }
 
   return (

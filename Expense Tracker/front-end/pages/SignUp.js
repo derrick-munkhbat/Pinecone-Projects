@@ -5,23 +5,23 @@ export default function Signup() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
+  // const [confirmPassword, setConfirmPassword] = useState("");
 
   const createNewUser = (e) => {
+    console.log({name, email, password})
     e.preventDefault();
-    if (password !== confirmPassword) {
-      alert("Passwords do not match.");
-    } else {
-      axios
-        .post("http://localhost:3000/create-user", { name, email, password })
-        .then((response) => {
-          alert("signup successful!");
-          console.log(response);
-          window.location.href = "/login";
-        })
-        .catch((error) => alert("error sorry"));
-    }
-  }
+    // if (password !== confirmPassword) {
+    //   alert("Passwords do not match.");
+    // } else {
+    axios
+      .post("http://localhost:3000/users", { name, email, password })
+      .then((response) => {
+        alert("signup successful!");
+        console.log(response);
+        window.location.href = "/login";
+      })
+      .catch((error) => alert("error sorry"));
+  };
 
   return (
     <div className="w-full max-w-md mx-auto text-center">
@@ -56,7 +56,7 @@ export default function Signup() {
             className="w-full p-3 border rounded-md border-gray-300 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 focus:outline-none"
           />
         </div>
-        <div className="mb-6">
+        {/* <div className="mb-6">
           <input
             type="password"
             placeholder="Re-enter Password"
@@ -64,7 +64,7 @@ export default function Signup() {
             onChange={(e) => setConfirmPassword(e.target.value)}
             className="w-full p-3 border rounded-md border-gray-300 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 focus:outline-none"
           />
-        </div>
+        </div> */}
         <button
           onClick={createNewUser}
           type="submit"

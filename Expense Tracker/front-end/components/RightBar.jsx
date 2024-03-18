@@ -2,34 +2,33 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import Select from "react-select";
 
-const categories = [
-  {
-    id: 1,
-    name: "home",
-  },
-  {
-    id: 2,
-    name: "personal",
-  },
-  {
-    id: 3,
-    name: "work",
-  },
-];
+// const categories = [
+//   {
+//     id: 1,
+//     name: "home",
+//   },
+//   {
+//     id: 2,
+//     name: "personal",
+//   },
+//   {
+//     id: 3,
+//     name: "work",
+//   },
+// ];
 
-const options = categories.map((category) => {
-  return {
-    value: category.category_id,
-    label: category.name,
-  };
-});
+// const options = categories.map((category) => {
+//   return {
+//     value: category.category_id,
+//     label: category.name,
+//   };
+// });
 
-console.log({ options });
+// console.log({ options });
 
 export function RightBar() {
-  const [category, setCategory] = useState("");
   const [amount, setAmount] = useState("");
-  const [transactions, setTransactions] = useState("");
+  const [transactions, setTransactions] = useState([]);
 
   const [isExpense, setIsExpense] = useState(true);
   const [isShowModal, setIsShowModal] = useState(false);
@@ -50,17 +49,17 @@ export function RightBar() {
 
   function createNewTransaction() {
     console.log({ amount, category });
-    axios
-      .post("http://localhost:3000/transactions", {
-        amount,
-        category,
-      })
-      .then(() => {
-        alert("success!");
-        loadTask();
-        // window.location.reload();
-      })
-      .catch((err) => alert("error"));
+    // axios
+    //   .post("http://localhost:3000/transactions", {
+    //     amount,
+    //     category,
+    //   })
+    //   .then(() => {
+    //     alert("success!");
+    //     loadTask();
+    //     // window.location.reload();
+    //   })
+    //   .catch((err) => alert("error"));
   }
 
   return (
@@ -166,7 +165,7 @@ export function RightBar() {
                 <label className="block text-gray-700 font-bold mb-2">
                   Category
                 </label>
-                <Select
+                <select
                   id="categories"
                   className="block appearance-none w-full border border-gray-200 text-gray-700 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                   value={category}
@@ -186,7 +185,7 @@ export function RightBar() {
                   <option value="income">Income</option>
                   <option value="other">Others</option>
                   <option value="others">+ Add Category</option>
-                </Select>
+                </select>
               </div>
 
               <div>

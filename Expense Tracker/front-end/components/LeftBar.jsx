@@ -1,6 +1,11 @@
+import { useEffect, useState } from "react";
 import { Chip } from "./Chip";
 
 export function LeftBar() {
+  const [categories, setCategories] = useState([]);
+
+  useEffect(() => {}, []);
+
   return (
     <>
       <div className="flex flex-col p-5 justify-start">
@@ -25,17 +30,21 @@ export function LeftBar() {
           {/* CATEGORY */}
           <div className="flex flex-col gap-1">
             <span className="font-bold">Category</span>
-            <Chip label="Food & Drinks" />
-            <Chip label="Shopping" />
-            <Chip label="Housing" />
-            <Chip label="Transportation" />
-            <Chip label="Vehicle" />
-            <Chip label="Life & Entertainment" />
-            <Chip label="Communication, PC" />
-            <Chip label="Financial Expenses" />
-            <Chip label="Investments" />
-            <Chip label="Income" />
-            <Chip label="Others" />
+
+            {categories.map((category) => (
+              <Chip label="categories" />
+            ))}
+
+            {/* <Chip label="categories" />
+            <Chip label="categories" />
+            <Chip label="categories" />
+            <Chip label="categories" />
+            <Chip label="categories" />
+            <Chip label="categories" />
+            <Chip label="categories" />
+            <Chip label="categories" />
+            <Chip label="categories" />
+            <Chip label="categoriess" /> */}
           </div>
 
           {/* AMOUNT RANGE */}
