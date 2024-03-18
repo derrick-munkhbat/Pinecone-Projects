@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import Select from "react-select";
 
 // const categories = [
 //   {
@@ -29,7 +28,7 @@ import Select from "react-select";
 export function RightBar() {
   const [amount, setAmount] = useState("");
   const [transactions, setTransactions] = useState([]);
-  const [category, setCategories] = useState("");
+  const [category, setCategory] = useState("");
 
   const [isExpense, setIsExpense] = useState(true);
   const [isShowModal, setIsShowModal] = useState(false);
@@ -50,17 +49,17 @@ export function RightBar() {
 
   function createNewTransaction() {
     console.log({ amount, category });
-    // axios
-    //   .post("http://localhost:3000/transactions", {
-    //     amount,
-    //     category,
-    //   })
-    //   .then(() => {
-    //     alert("success!");
-    //     loadTask();
-    //     // window.location.reload();
-    //   })
-    //   .catch((err) => alert("error"));
+    axios
+      .post("http://localhost:3000/transactions", {
+        amount,
+        category,
+      })
+      .then(() => {
+        alert("success!");
+        loadTask();
+        // window.location.reload();
+      })
+      .catch((err) => alert("error"));
   }
 
   return (
@@ -169,23 +168,12 @@ export function RightBar() {
                 <select
                   id="categories"
                   className="block appearance-none w-full border border-gray-200 text-gray-700 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                  // value={category}
-                  // onChange={(e) => setCategory(e.target.value)}
+                  value={category}
+                  onChange={(e) => setCategory(e.target.value)}
                 >
-                  <option value="food-drinks">Food & Drinks</option>
-                  <option value="shopping">Shopping</option>
-                  <option value="housing">Housing</option>
-                  <option value="transportation">Transportation</option>
-                  <option value="vehicle">Vehicle</option>
-                  <option value="life-entertainment">
-                    Life & Entertainment
-                  </option>
-                  <option value="communication-pc">Communication, PC</option>
-                  <option value="financial">Financial expenses</option>
-                  <option value="investment">Investments</option>
-                  <option value="income">Income</option>
-                  <option value="other">Others</option>
-                  <option value="others">+ Add Category</option>
+                  <option value={category.name}>hello</option>
+                  <option value={category.name}>hi</option>
+                  <option value={category.name}>holla</option>
                 </select>
               </div>
 
