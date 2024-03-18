@@ -9,8 +9,8 @@ router.get("/", async (req, res) => {
 
 //TRANSACTION POST
 router.post("/", async (req, res) => {
-  const { amount } = req.body;
-  await sql`insert into transactions (amount) values (${amount})`;
+  const { amount, category } = req.body;
+  await sql`insert into transactions (amount,category_id) values (${amount}, ${category})`;
   res.json([{ status: "success" }]);
 });
 

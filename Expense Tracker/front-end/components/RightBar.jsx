@@ -1,30 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 
-// const categories = [
-//   {
-//     id: 1,
-//     name: "home",
-//   },
-//   {
-//     id: 2,
-//     name: "personal",
-//   },
-//   {
-//     id: 3,
-//     name: "work",
-//   },
-// ];
-
-// const options = categories.map((category) => {
-//   return {
-//     value: category.category_id,
-//     label: category.name,
-//   };
-// });
-
-// console.log({ options });
-
 export function RightBar() {
   const [amount, setAmount] = useState("");
   const [transactions, setTransactions] = useState([]);
@@ -59,8 +35,17 @@ export function RightBar() {
         loadTask();
         // window.location.reload();
       })
-      .catch((err) => alert("error"));
+      .catch(() => alert("error"));
   }
+
+  const [categories, setCategories] = useState([]);
+
+  useEffect(() => {
+    fetch("http://localhost:3000/categories")
+      .then((res) => res.json())
+      .then((data) => setCategories(data))
+      .catch((err) => console.log(err));
+  }, []);
 
   return (
     <div className="flex p-4 relative">
@@ -85,7 +70,8 @@ export function RightBar() {
                     className="checkbox checkbox-md ml-4"
                   />
                   <div className="flex-1">
-                    <h2 className="text-xl">category</h2>
+                    <h2 className="text-xl">{transaction.category_id}</h2>
+
                     <h2>date and time</h2>
                   </div>
                   <div className=" text-xl mr-4">{transaction.amount}</div>
@@ -166,14 +152,13 @@ export function RightBar() {
                   Category
                 </label>
                 <select
-                  id="categories"
                   className="block appearance-none w-full border border-gray-200 text-gray-700 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                   value={category}
                   onChange={(e) => setCategory(e.target.value)}
                 >
-                  <option value={category.name}>hello</option>
-                  <option value={category.name}>hi</option>
-                  <option value={category.name}>holla</option>
+                  {categories.map((category) => (
+                    <option value={category.id}>{category.name}</option>
+                  ))}
                 </select>
               </div>
 

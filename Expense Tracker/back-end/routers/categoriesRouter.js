@@ -17,7 +17,7 @@ router.post("/", async (req, res) => {
 //CATEGORY DELETE
 router.delete("/:id", async (req, res) => {
   const { id } = req.params;
-  await sql`delete from categories where category_id = ${id}`;
+  await sql`delete from categories where id = ${id}`;
   res.json([{ status: "success" }]);
 });
 
@@ -25,7 +25,7 @@ router.delete("/:id", async (req, res) => {
 router.put("/:id", async (req, res) => {
   const { id } = req.params;
   const { name } = req.body;
-  await sql`update categories set name = ${name} where category_id = ${id}`;
+  await sql`update categories set name = ${name} where id = ${id}`;
   res.json([{ status: "success" }]);
 });
 
