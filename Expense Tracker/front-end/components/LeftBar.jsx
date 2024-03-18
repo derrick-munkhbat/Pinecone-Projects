@@ -4,7 +4,12 @@ import { Chip } from "./Chip";
 export function LeftBar() {
   const [categories, setCategories] = useState([]);
 
-  useEffect(() => {}, []);
+  useEffect(() => {
+    fetch("http://localhost:3000/categories")
+      .then((res) => res.json())
+      .then((data) => setCategories(data))
+      .catch((err) => console.log(err));
+  }, []);
 
   return (
     <>
@@ -32,19 +37,8 @@ export function LeftBar() {
             <span className="font-bold">Category</span>
 
             {categories.map((category) => (
-              <Chip label="categories" />
+              <Chip label={category.name} />
             ))}
-
-            {/* <Chip label="categories" />
-            <Chip label="categories" />
-            <Chip label="categories" />
-            <Chip label="categories" />
-            <Chip label="categories" />
-            <Chip label="categories" />
-            <Chip label="categories" />
-            <Chip label="categories" />
-            <Chip label="categories" />
-            <Chip label="categoriess" /> */}
           </div>
 
           {/* AMOUNT RANGE */}

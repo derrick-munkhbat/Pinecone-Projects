@@ -29,6 +29,7 @@ import Select from "react-select";
 export function RightBar() {
   const [amount, setAmount] = useState("");
   const [transactions, setTransactions] = useState([]);
+  const [category, setCategories] = useState("");
 
   const [isExpense, setIsExpense] = useState(true);
   const [isShowModal, setIsShowModal] = useState(false);
@@ -168,8 +169,8 @@ export function RightBar() {
                 <select
                   id="categories"
                   className="block appearance-none w-full border border-gray-200 text-gray-700 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                  value={category}
-                  onChange={(e) => setCategory(e.target.value)}
+                  // value={category}
+                  // onChange={(e) => setCategory(e.target.value)}
                 >
                   <option value="food-drinks">Food & Drinks</option>
                   <option value="shopping">Shopping</option>
