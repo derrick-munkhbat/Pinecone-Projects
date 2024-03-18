@@ -33,7 +33,7 @@ export function RightBar() {
       .then(() => {
         alert("success!");
         loadTask();
-        // window.location.reload();
+        window.location.reload();
       })
       .catch(() => alert("error"));
   }
