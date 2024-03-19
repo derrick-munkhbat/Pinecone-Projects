@@ -1,19 +1,20 @@
+const HomePage = () => {
+  return <main>hello world</main>;
+};
 
-
-
-export default Homepage;
+export default HomePage;
 
 type Post = {
   title: string;
   description: string;
   num: string;
-}
+};
 
 type CardProps = {
   title: string;
-  description: string;
+  imgUrl: string;
   posts: Post[];
-}
+};
 
 const Card = (props: CardProps) => {
   const { title, imgUrl, posts } = props;
@@ -21,12 +22,9 @@ const Card = (props: CardProps) => {
   return (
     <div>
       <h1>{title}</h1>
-      {posts.map((post, index) => )
-      <p key={index}>{title}</p>
+      {posts.map((post, index) => (
+        <p key={index}>{title}</p>
       ))}
     </div>
   );
 };
-
-
-
