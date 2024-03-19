@@ -17,7 +17,7 @@ router.post("/", async (req, res) => {
 //TRANSACTION DELETE
 router.delete("/:id", async (req, res) => {
   const { id } = req.params;
-  await sql`delete from transactions where transaction_id = ${id}`;
+  await sql`delete from transactions where id = ${id}`;
   res.json([{ status: "success" }]);
 });
 
@@ -25,7 +25,7 @@ router.delete("/:id", async (req, res) => {
 router.put("/:id", async (req, res) => {
   const { id } = req.params;
   const { amount } = req.body;
-  await sql`update transactions set amount = ${amount} where transaction_id = ${id}`;
+  await sql`update transactions set amount = ${amount} where id = ${id}`;
   res.json([{ status: "success" }]);
 });
 
