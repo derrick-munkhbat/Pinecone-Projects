@@ -59,7 +59,7 @@ export function RightBar() {
         {/* CARDS */}
         {transactions.map((transaction) => (
           <div
-            key={transaction.transaction_id}
+            key={transaction.id}
             className="container w-[600px] my-3 border rounded"
           >
             <div className="mb-2 bg-base-100">
