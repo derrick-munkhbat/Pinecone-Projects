@@ -12,7 +12,7 @@ export function Header() {
       <div className="hidden lg:flex gap-5 items-center">
         <ThemeChanger />
         <a
-          href="./images/profile-portrait.jpg"
+          href="./derrick-fullstack-developer.pdf"
           download
           className="bg-black text-white rounded p-0 px-4 py-2 dark:bg-white dark:text-black"
         >

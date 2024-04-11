@@ -29,7 +29,6 @@ import {
   Upwork,
 } from "@/components/icon";
 
-
 import { Chip } from "@/components/Chip";
 // import { list } from "postcss";
 
@@ -42,23 +41,26 @@ export default function Home() {
         {/* INTRO */}
 
         <div className="lg:flex flex-row-reverse mt-10 gap-5">
-          <div className="flex justify-center lg:w-3/6 p-5">
-            <img src="/images/profile-portrait.jpg" alt="profile-portrait" />
+          <div className="flex p-5">
+            <img
+              className="rounded-2xl shadow-2xl"
+              src="/images/headshot.jpg"
+              alt="profile-portrait"
+            />
           </div>
 
           <div className="lg:w-3/4 p-5">
-            <h2 className="text-4xl">Hi, I’m Sagar 👋</h2>
+            <h2 className="text-4xl">Hi, I’m Derrick Munkhbat 👋</h2>
             <p className="text-base mt-2 text-slate-500 text-justify">
               I'm a full stack developer (React.js & Node.js) with a focus on
               creating (and occasionally designing) exceptional digital
               experiences that are fast, accessible, visually appealing, and
-              responsive. Even though I have been creating web applications for
-              over 7 years, I still love it as if it was something new.
+              responsive.
             </p>
 
             <div className="flex items-center mt-10">
               <Location />
-              <p className="text-slate-500">Ahmedabad, India</p>
+              <p className="text-slate-500">Ulaanbaatar, Mongolia</p>
             </div>
 
             <div className="flex items-center ">
@@ -67,9 +69,15 @@ export default function Home() {
             </div>
 
             <div className=" flex mt-8">
-              <Kitty />
-              <Birdy />
-              <Hug />
+              <button>
+                <Kitty />
+              </button>
+              <button>
+                <Birdy />
+              </button>
+              <button>
+                <Hug />
+              </button>
             </div>
           </div>
         </div>
@@ -81,57 +89,39 @@ export default function Home() {
           </div>
 
           <div className="lg:flex gap-5">
-            <div className="flex justify-center p-5 lg:w-3/6">
-              <img src="/images/profile-about-me.jpg" alt="profile-about-me" />
+            <div className="flex justify-center p-5 lg:w-1/2 h-full">
+              <img
+                className="rounded-2xl shadow-2xl"
+                src="/images/IMG_0133.jpeg"
+                alt="profile-about-me"
+              />
             </div>
 
-            <div className="p-5 lg:w-3/4">
-              <h2 className="text-4xl p-5">
+            <div className="flex flex-col p-5 lg:w-1/2">
+              <h2 className="text-4xl text-center mb-16">
                 Curious about me? Here you have it:
               </h2>
               <p className="text-base text-slate-500 text-justify">
-                I'm a passionate, self-proclaimed designer who specializes in
-                full stack development (React.js & Node.js). I am very
-                enthusiastic about bringing the technical and visual aspects of
-                digital products to life. User experience, pixel perfect design,
-                and writing clear, readable, highly performant code matters to
-                me.
-              </p>
-              <p className="text-base mt-2 text-slate-500 text-justify">
-                I began my journey as a web developer in 2015, and since then,
-                I've continued to grow and evolve as a developer, taking on new
-                challenges and learning the latest technologies along the way.
-                Now, in my early thirties, 7 years after starting my web
-                development journey, I'm building cutting-edge web applications
-                using modern technologies such as Next.js, TypeScript, Nestjs,
-                Tailwindcss, Supabase and much more.
-              </p>
-
-              <p className="text-base mt-2 text-slate-500 text-justify">
-                I am very much a progressive thinker and enjoy working on
-                products end to end, from ideation all the way to development.
-              </p>
-
-              <p className="text-base mt-2 text-slate-500 text-justify">
-                When I'm not in full-on developer mode, you can find me hovering
-                around on twitter or on indie hacker, witnessing the journey of
-                early startups or enjoying some free time. You can follow me on
-                Twitter where I share tech-related bites and build in public, or
-                you can follow me on GitHub.
-              </p>
-
-              <p className="text-base mt-2 text-slate-500 text-justify">
-                Finally, some quick bits about me.
+                Responsible and humble junior level full stack web developer
+                with a solid foundation in front-end and back-end development
+                technologies, including HTML, CSS, JavaScript, React,
+                Tailwindcss, Next.js, Node.js, Express.js, SQL and GitHub.
+                Committed to continuous learning and professional growth. Eager
+                to contribute to innovative projects, leverage emerging
+                technologies, and drive impactful results in the ever-evolving
+                field of not only web development but also in the broader realm
+                of technology and digital innovation.
               </p>
 
               <ul className="text-base mt-2 text-slate-500 text-justify">
-                <li>B.E. in Computer Engineering</li>
+                <li>
+                  The Leap - 6 months full stack program by "Pinecone Academy"
+                </li>
+                <li>B.S. in Computer Programming</li>
                 <li>Full time freelancer</li>
-                <li>Avid learner</li>
-                <li>Aspiring indie hacker</li>
               </ul>
 
-              <p className="text-base mt-2 text-slate-500 text-justify">
+              <p className="text-base text-slate-500 text-justify">
                 One last thing, I'm available for freelance work, so feel free
                 to reach out and say hello! I promise I don't bite 😉
               </p>
@@ -140,8 +130,6 @@ export default function Home() {
         </div>
 
         {/* SKILLS */}
-
-        
 
         <div className="p-5">
           <div className="flex flex-col items-center p-5">
@@ -211,9 +199,8 @@ export default function Home() {
               <Git />
             </div>
           </div> */}
-        
 
-          < Skills />
+          <Skills />
         </div>
 
         {/* EXPERIENCE */}
@@ -379,6 +366,39 @@ export default function Home() {
           </div>
         </div>
 
+        {/* PHOTO */}
+
+        <div className="flex p-5 justify-center items-center">
+          <Chip label="Hobby" />
+        </div>
+
+        <div className="lg:flex gap-5">
+          <div className="flex justify-center p-5 lg:w-1/2 h-full">
+            <img
+              className="rounded-2xl shadow-2xl"
+              src="/images/DJI_0379 copy.jpg"
+              alt="profile-about-me"
+            />
+          </div>
+
+          <div className="flex flex-col p-5 lg:w-1/2">
+            <h2 className="text-4xl text-center mb-16">Genghis Khaan Statue</h2>
+            <p className="text-base text-slate-500 text-justify">
+              The Genghis Khan Equestrian Statue, part of the Genghis Khan
+              Statue Complex, is a 40-metre (130 ft) tall, stainless steel
+              statue of Genghis Khan on horseback and the world's tallest
+              equestrian statue.[2] It is located on the bank of the Tuul River
+              at Tsonjin Boldog, 54 km (33.55 mi) east of the Mongolian capital
+              Ulaanbaatar, where, according to legend, he found a golden whip.
+              The statue is symbolically pointed east towards his birthplace. It
+              is on top of the Genghis Khan Statue Complex, a visitor centre,
+              itself 10 metres (33 ft) tall, with 36 columns representing the 36
+              khans from Genghis to Ligdan Khan. It was designed by sculptor D.
+              Erdenebileg and architect J. Enkhjargal and erected in 2008.[3]
+            </p>
+          </div>
+        </div>
+
         {/* GET IN TOUCH */}
 
         <div className="flex flex-col items-center p-5 gap-5">
@@ -393,21 +413,31 @@ export default function Home() {
 
           <div className="flex items-center gap-5">
             <Email />
-            <h3>reachsagarshah@gmail.com</h3>
-            <Copy />
+            <h3>derrick.munkhbat@gmail.com</h3>
+            <button>
+              <Copy />
+            </button>
           </div>
 
           <div className="flex items-center gap-5">
             <Cell />
-            <h3>+91 8980500565</h3>
-            <Copy />
+            <h3>+976 88181074</h3>
+            <button>
+              <Copy />
+            </button>
           </div>
 
           <p>You may also find me on these platforms!</p>
           <div className="flex gap-5">
-            <Kitty />
-            <Birdy />
-            <Hug />
+            <button>
+              <Kitty />
+            </button>
+            <button>
+              <Birdy />
+            </button>
+            <button>
+              <Hug />
+            </button>
           </div>
         </div>
 
