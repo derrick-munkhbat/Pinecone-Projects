@@ -6,7 +6,9 @@ import { ThemeChanger } from "./ThemeChanger";
 export function Header() {
   return (
     <div className="border-2 rounded flex justify-between p-4 items-center dark:white">
-      <Logo />
+      <div className="dark:fill-slate-300">
+        <Logo />
+      </div>
 
       <MainMenu items={menuItems} />
       <div className="hidden lg:flex gap-5 items-center">

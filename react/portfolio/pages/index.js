@@ -1,6 +1,5 @@
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
-import { Skills } from "@/components/Skills-icons";
 import {
   Birdy,
   Hug,
@@ -13,13 +12,8 @@ import {
   Next,
   Node,
   Express,
-  Nest,
-  Socket,
   Mongo,
-  Sass,
   Figma,
-  Cypress,
-  Storybook,
   Git,
   Tailwind,
   Action,
@@ -27,6 +21,7 @@ import {
   Copy,
   Cell,
   Upwork,
+  Post,
 } from "@/components/icon";
 
 import { Chip } from "@/components/Chip";
@@ -98,7 +93,7 @@ export default function Home() {
             </div>
 
             <div className="flex flex-col p-5 lg:w-1/2">
-              <h2 className="text-4xl text-center mb-16">
+              <h2 className="text-4xl text-center mb-5">
                 Curious about me? Here you have it:
               </h2>
               <p className="text-base text-slate-500 text-justify">
@@ -132,75 +127,62 @@ export default function Home() {
         {/* SKILLS */}
 
         <div className="p-5">
-          <div className="flex flex-col items-center p-5">
+          <div className="flex flex-col items-center justify-center p-5">
             <Chip label="Skills" />
           </div>
-
           <p className="text-base p-5 text-slate-500 text-center">
             The skills, tools and technologies I am really good at:
           </p>
 
-          {/* <div className="flex-col mt-10 lg:hidden">
-            <div className="flex justify-evenly mb-10">
-              <Js />
-              <Ts />
-              <React />
-            </div>
-
-            <div className="flex justify-evenly  mb-10">
-              <Next />
-              <Node />
-              <Express />
-            </div>
-
-            <div className="flex justify-evenly  mb-10">
-              <Nest />
-              <Socket />
-              <img src="/images/Post.png" alt="Post" />
-            </div>
-
-            <div className="flex justify-evenly  mb-10">
-              <Mongo />
-              <Sass />
-              <Tailwind />
-            </div>
-
-            <div className="flex justify-evenly  mb-10">
-              <Figma />
-              <Cypress />
-              <Storybook />
-            </div>
-
-            <div className="ml-14">
-              <Git />
+          <div className="mt-5 mb-5">
+            <div className="grid grid-cols-6 gap-4">
+              <div className="flex flex-col items-center justify-center gap-2">
+                <Js />
+                <p className="text-slate-700 font-medium">JavaScript</p>
+              </div>
+              <div className="flex flex-col items-center justify-center gap-2">
+                <Ts />
+                <p className="text-slate-700 font-medium">Typescript</p>
+              </div>
+              <div className="flex flex-col items-center justify-center gap-2">
+                <React />
+                <p className="text-slate-700 font-medium">React</p>
+              </div>
+              <div className="flex flex-col items-center justify-center gap-2">
+                <Next />
+                <p className="text-slate-700 font-medium">Next.js</p>
+              </div>
+              <div className="flex flex-col items-center justify-center gap-2">
+                <Node />
+                <p className="text-slate-700 font-medium">Node.js</p>
+              </div>
+              <div className="flex flex-col items-center justify-center gap-2">
+                <Express />
+                <p className="text-slate-700 font-medium">Express.js</p>
+              </div>
+              <div className="flex flex-col items-center justify-center gap-2">
+                <Mongo />
+                <p className="text-slate-700 font-medium">MongoDB</p>
+              </div>
+              <div className="flex flex-col items-center justify-center gap-2">
+                <Tailwind />
+                <p className="text-slate-700 font-medium">Tailwindcss</p>
+              </div>
+              <div className="flex flex-col items-center justify-center gap-2">
+                <Post />
+                <p className="text-slate-700 font-medium">PostgreSQL</p>
+              </div>
+              <div className="flex flex-col items-center justify-center gap-2">
+                <Figma />
+                <p className="text-slate-700 font-medium">Figma</p>
+              </div>
+              <div className="flex flex-col items-center justify-center gap-2">
+                <Git />
+                <p className="text-slate-700 font-medium">Git</p>
+              </div>
             </div>
           </div>
-
-          <div className="hidden lg:flex flex-col mt-10">
-            <div className="flex justify-evenly mb-10">
-              <Js />
-              <Ts />
-              <React />
-              <Next />
-              <Node />
-              <Express />
-              <Nest />
-              <Socket />
-            </div>
-
-            <div className="flex justify-evenly  mb-10">
-              <img src="/images/Post.png" alt="Post" />
-              <Mongo />
-              <Sass />
-              <Tailwind />
-              <Figma />
-              <Cypress />
-              <Storybook />
-              <Git />
-            </div>
-          </div> */}
-
-          <Skills />
+          {/* <Skills /> */}
         </div>
 
         {/* EXPERIENCE */}
@@ -382,10 +364,11 @@ export default function Home() {
           </div>
 
           <div className="flex flex-col p-5 lg:w-1/2">
-            <h2 className="text-4xl text-center mb-16">Genghis Khaan Statue</h2>
+            <h2 className="text-4xl text-center mb-5">Genghis Khaan Statue</h2>
             <p className="text-base text-slate-500 text-justify">
               The Genghis Khan Equestrian Statue, part of the Genghis Khan
-              Statue Complex, is a 40-metre (130 ft) tall, stainless steel
+              Statue Complex which I took this image with my drone DJI MAVIC
+              drone, is actually a 40-metre (130 ft) tall, stainless steel
               statue of Genghis Khan on horseback and the world's tallest
               equestrian statue.[2] It is located on the bank of the Tuul River
               at Tsonjin Boldog, 54 km (33.55 mi) east of the Mongolian capital
