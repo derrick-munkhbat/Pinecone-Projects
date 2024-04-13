@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Menu } from "./icon/Menu";
+import { menuItems } from "@/data/menuItem";
 
 export function MainMenu({ items }) {
   return (
@@ -11,47 +12,55 @@ export function MainMenu({ items }) {
           </a>
         ))}
       </div>
-      
-      <MobileMenu />
-      
-    </div>
-      
 
+      <MobileMenu />
+    </div>
   );
 }
 
-
-function MobileMenu(){
+function MobileMenu() {
   const [visible, setVisible] = useState(false);
 
   // let open = false;
 
-  function openMenu(){
+  function openMenu() {
     // open=true;
     setVisible(true);
   }
 
-  function closeMenu(){
+  function closeMenu() {
     // open=false;
     setVisible(false);
   }
 
-  return (
-  <>
-    <button className="flex lg:hidden" onClick={openMenu}>
-      <Menu />
-    </button>
-    {
-      visible && <div className="fixed bg-slate-400/70 inset-0"></div>
+  useEffect(() => {
+    if (openMenu) {
+      document.body.classList.add("overflow-hidden");
+    } else {
+      document.body.classList.remove("overflow-hidden");
     }
-    
-    <div className={`fixed top-0 bottom-0 w-3/4 transition-all bg-white ${visible ? "right-0": "-right-full"}`}>
-      <div className="p-8 text-2xl">Mobile Menu</div>
-      <button onClick={closeMenu}>close</button>
-    </div>
-  </>
-  )
+  }, [openMenu]);
+
+  return (
+    <>
+      <button className="flex lg:hidden" onClick={openMenu}>
+        <Menu />
+      </button>
+      {visible && <div className="z-10 fixed bg-slate-400/70 inset-0"></div>}
+
+      <div
+        className={`z-20 fixed top-0 bottom-0 w-3/6 transition-all bg-white ${
+          visible ? "right-0" : "-right-full"
+        }`}
+      >
+        <div className="flex justify-between items-center p-5 border-b-4">
+          <button onClick={closeMenu}>X</button>
+          <div className="text-2xl">Menu</div>
+        </div>
+        <div className="flex justify-between items-center p-5">
+          menu is under review
+        </div>
+      </div>
+    </>
+  );
 }
-
-
-
