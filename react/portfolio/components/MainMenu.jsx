@@ -1,6 +1,5 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Menu } from "./icon/Menu";
-import { menuItems } from "@/data/menuItem";
 
 export function MainMenu({ items }) {
   return (
@@ -32,14 +31,6 @@ function MobileMenu() {
     // open=false;
     setVisible(false);
   }
-
-  useEffect(() => {
-    if (openMenu) {
-      document.body.classList.add("overflow-hidden");
-    } else {
-      document.body.classList.remove("overflow-hidden");
-    }
-  }, [openMenu]);
 
   return (
     <>

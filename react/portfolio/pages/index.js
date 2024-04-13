@@ -199,50 +199,58 @@ export default function Home() {
           </p>
 
           <div className="flex flex-col gap-5">
-            <div className="flex flex-col border-black rounded-xl w-80 bg-white p-5 gap-5  self-stretch">
-              <Upwork />
-              <p>Nov 2021 - Present</p>
-              <h1 className="text-xl decoration-4">Sr. Frontend Developer</h1>
+            <div className="flex flex-col border-black rounded-xl w-80 bg-white p-5 gap-5">
+              <h3 className="text-green-600 font-bold text-2xl">
+                Pinecone Academy
+              </h3>
+              <p>Nov 2023 - May 2024 </p>
+
+              <h1 className="text-xl decoration-4">Full stack web developer</h1>
+              <ul className="flex flex-col text-justify gap-2">
+                <li>currently enrolled</li>
+              </ul>
+            </div>
+            <div className="flex flex-col border-black rounded-xl w-80 bg-white p-5 gap-5">
+              <h3 className="text-green-600 font-bold text-2xl">Remax Hub</h3>
+              <p>Jan 2021 - Dec 2023 </p>
+
+              <h1 className="text-xl decoration-4">Realtor</h1>
               <ul className="flex flex-col text-justify gap-2">
                 <li>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                </li>
-                <li>
-                  Ut pretium arcu et massa semper, id fringilla leo semper.
-                </li>
-                <li>Sed quis justo ac magna.</li>
-                <li>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                  Offering advice for clients to buy, sell, or rent their
+                  residential and commercial spaces.
                 </li>
               </ul>
             </div>
 
             <div className="flex flex-col border-black rounded-xl w-80 bg-white p-5 gap-5">
-              <Upwork />
-              <p>Jul 2017 - Oct 2021</p>
+              <h3 className="text-green-600 font-bold text-2xl">
+                Beijing Wok Restaurant
+              </h3>
+              <p>Sep 2012 - Sep 2019 </p>
 
-              <h1 className="text-xl decoration-4">Team Lead</h1>
+              <h1 className="text-xl decoration-4">General Manager</h1>
               <ul className="flex flex-col text-justify gap-2">
-                <li>Sed quis justo ac magna.</li>
                 <li>
-                  Ut pretium arcu et massa semper, id fringilla leo semper.
-                </li>
-                <li>Sed quis justo ac magna.</li>
-                <li>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                  Managing and operating a small family restaurant business in
+                  North Chicago.
                 </li>
               </ul>
             </div>
 
             <div className="flex flex-col border-black rounded-xl w-80 bg-white p-5 gap-5">
-              <Upwork />
-              <p>Dec 2015 - May 2017</p>
+              <h3 className="text-green-600 font-bold text-2xl">
+                Comcast Xfinity LLC
+              </h3>
+              <p>Aug 2009 - Sep 2011 </p>
 
-              <h1 className="text-xl decoration-4">Full Stack Developer</h1>
+              <h1 className="text-xl decoration-4">
+                Internet Network and Security Technician
+              </h1>
               <ul className="flex flex-col text-justify gap-2">
                 <li>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem
-                  ipsum dolor sit amet, consectetur adipiscing elit.
+                  Installing and troubleshooting internet network and security
+                  system for residential and commercial spaces in Chicago area.
                 </li>
               </ul>
             </div>
@@ -251,7 +259,7 @@ export default function Home() {
 
         {/* WORK */}
 
-        <div className="p-5">
+        {/* <div className="p-5">
           <div className="flex flex-col items-center p-5">
             <Chip label="Work" />
           </div>
@@ -349,7 +357,7 @@ export default function Home() {
               <Action />
             </div>
           </div>
-        </div>
+        </div> */}
 
         {/* PHOTO */}
 
