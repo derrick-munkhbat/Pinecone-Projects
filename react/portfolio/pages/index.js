@@ -35,17 +35,20 @@ export default function Home() {
 
         {/* INTRO */}
 
-        <div className="lg:flex flex-row-reverse mt-10 gap-5">
-          <div className="flex p-5">
+        <div className="lg:flex flex-row-reverse mt-10 gap-20">
+          <div className="flex p-10">
+            <div className="relative bg-slate-300 w-80 h-96 top-10 left-10">
+              background
+            </div>
             <img
-              className="rounded-2xl shadow-2xl"
+              className="absolute shadow-2xl w-90 h-96 border-white border-8"
               src="/images/headshot.jpg"
               alt="profile-portrait"
             />
           </div>
 
           <div className="lg:w-3/4 p-5">
-            <h2 className="text-4xl">Hi, I’m Derrick Munkhbat 👋</h2>
+            <h2 className="text-3xl mt-10">Hi, I’m Derrick Munkhbat 👋</h2>
             <p className="text-base mt-2 text-slate-500 text-justify">
               I'm a full stack developer (React.js & Node.js) with a focus on
               creating (and occasionally designing) exceptional digital
@@ -79,12 +82,12 @@ export default function Home() {
 
         {/*ABOUT ME */}
         <div>
-          <div className="flex flex-col gap-2 items-center justify-center p-5">
+          <div className="flex flex-col gap-2 items-center justify-center p-5 mb-5 mt-5">
             <Chip label="About me" />
           </div>
 
           <div className="lg:flex gap-5">
-            <div className="flex justify-center p-5 lg:w-1/2 h-full">
+            <div className="flex justify-center lg:w-1/2 h-full">
               <img
                 className="rounded-2xl shadow-2xl"
                 src="/images/IMG_0133.jpeg"
@@ -93,7 +96,7 @@ export default function Home() {
             </div>
 
             <div className="flex flex-col p-5 lg:w-1/2">
-              <h2 className="text-4xl text-center mb-5">
+              <h2 className="text-3xl text-center mb-5">
                 Curious about me? Here you have it:
               </h2>
               <p className="text-base text-slate-500 text-justify">
@@ -135,7 +138,7 @@ export default function Home() {
           </p>
 
           <div className="mt-5 mb-5">
-            <div className="grid grid-cols-6 gap-4">
+            <div className="grid lg:grid-cols-6 grid-cols-3 gap-4">
               <div className="flex flex-col items-center justify-center gap-2">
                 <Js />
                 <p className="text-slate-700 font-medium">JavaScript</p>
@@ -187,7 +190,7 @@ export default function Home() {
 
         {/* EXPERIENCE */}
 
-        <div className="flex flex-col items-center bg-slate-100 p-5">
+        <div className="flex flex-col rounded-2xl items-center bg-slate-100 p-5 dark:bg-slate-300">
           <div className="flex flex-col items-center p-5">
             <Chip label="Experience" />
           </div>
