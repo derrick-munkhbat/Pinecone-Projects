@@ -87,7 +87,7 @@ export default function Home() {
           </div>
 
           <div className="lg:flex gap-5">
-            <div className="flex justify-center lg:w-1/2 h-full">
+            <div className="flex justify-center lg:w-1/3 h-full">
               <img
                 className="rounded-2xl shadow-2xl"
                 src="/images/IMG_0133.jpeg"
@@ -95,7 +95,7 @@ export default function Home() {
               />
             </div>
 
-            <div className="flex flex-col p-5 lg:w-1/2">
+            <div className="flex flex-col p-5 lg:w-2/3">
               <h2 className="text-3xl text-center mb-5">
                 Curious about me? Here you have it:
               </h2>
@@ -366,14 +366,6 @@ export default function Home() {
         </div>
 
         <div className="lg:flex gap-5">
-          <div className="flex justify-center p-5 lg:w-1/2 h-full">
-            <img
-              className="rounded-2xl shadow-2xl"
-              src="/images/DJI_0379 copy.jpg"
-              alt="profile-about-me"
-            />
-          </div>
-
           <div className="flex flex-col p-5 lg:w-1/2">
             <h2 className="text-4xl text-center mb-5">Genghis Khaan Statue</h2>
             <p className="text-base text-slate-500 text-justify">
@@ -390,6 +382,13 @@ export default function Home() {
               khans from Genghis to Ligdan Khan. It was designed by sculptor D.
               Erdenebileg and architect J. Enkhjargal and erected in 2008.[3]
             </p>
+          </div>
+          <div className="flex justify-center p-5 lg:w-1/2 h-full">
+            <img
+              className="rounded-2xl shadow-2xl"
+              src="/images/DJI_0379 copy.jpg"
+              alt="profile-about-me"
+            />
           </div>
         </div>
 
