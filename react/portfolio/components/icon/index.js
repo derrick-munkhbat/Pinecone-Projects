@@ -14,7 +14,6 @@ export * from "./Node";
 export * from "./Express";
 export * from "./Nest";
 export * from "./Socket";
-export * from "./Post";
 export * from "./Mongo";
 export * from "./Sass";
 export * from "./Figma";

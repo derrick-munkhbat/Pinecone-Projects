@@ -23,7 +23,6 @@ import {
   Upwork,
   Post,
 } from "@/components/icon";
-
 import { Chip } from "@/components/Chip";
 // import { list } from "postcss";
 
@@ -137,55 +136,65 @@ export default function Home() {
             The skills, tools and technologies I am really good at:
           </p>
 
-          <div className="mt-5 mb-5">
-            <div className="grid lg:grid-cols-6 grid-cols-3 gap-4">
-              <div className="flex flex-col items-center justify-center gap-2">
-                <Js />
-                <p className="text-slate-700 font-medium">JavaScript</p>
-              </div>
-              <div className="flex flex-col items-center justify-center gap-2">
-                <Ts />
-                <p className="text-slate-700 font-medium">Typescript</p>
-              </div>
-              <div className="flex flex-col items-center justify-center gap-2">
-                <React />
-                <p className="text-slate-700 font-medium">React</p>
-              </div>
-              <div className="flex flex-col items-center justify-center gap-2">
-                <Next />
-                <p className="text-slate-700 font-medium">Next.js</p>
-              </div>
-              <div className="flex flex-col items-center justify-center gap-2">
-                <Node />
-                <p className="text-slate-700 font-medium">Node.js</p>
-              </div>
-              <div className="flex flex-col items-center justify-center gap-2">
-                <Express />
-                <p className="text-slate-700 font-medium">Express.js</p>
-              </div>
-              <div className="flex flex-col items-center justify-center gap-2">
-                <Mongo />
-                <p className="text-slate-700 font-medium">MongoDB</p>
-              </div>
-              <div className="flex flex-col items-center justify-center gap-2">
-                <Tailwind />
-                <p className="text-slate-700 font-medium">Tailwindcss</p>
-              </div>
-              <div className="flex flex-col items-center justify-center gap-2">
-                <Post />
-                <p className="text-slate-700 font-medium">PostgreSQL</p>
-              </div>
-              <div className="flex flex-col items-center justify-center gap-2">
-                <Figma />
-                <p className="text-slate-700 font-medium">Figma</p>
-              </div>
-              <div className="flex flex-col items-center justify-center gap-2">
-                <Git />
-                <p className="text-slate-700 font-medium">Git</p>
-              </div>
+          <div className="flex-col mt-10 lg:hidden">
+            <div className="flex justify-evenly mb-10">
+              <Js />
+              <Ts />
+              <React />
+            </div>
+
+            <div className="flex justify-evenly  mb-10">
+              <Next />
+              <Node />
+              <Express />
+            </div>
+
+            <div className="flex justify-evenly  mb-10">
+              <Nest />
+              <Socket />
+              <img src="/images/Post.png" alt="Post" />
+            </div>
+
+            <div className="flex justify-evenly  mb-10">
+              <Mongo />
+              <Sass />
+              <Tailwind />
+            </div>
+
+            <div className="flex justify-evenly  mb-10">
+              <Figma />
+              <Cypress />
+              <Storybook />
+            </div>
+
+            <div className="ml-14">
+              <Git />
             </div>
           </div>
-          {/* <Skills /> */}
+
+          <div className="hidden lg:flex flex-col mt-10">
+            <div className="flex justify-evenly mb-10">
+              <Js />
+              <Ts />
+              <React />
+              <Next />
+              <Node />
+              <Express />
+              <Nest />
+              <Socket />
+            </div>
+
+            <div className="flex justify-evenly  mb-10">
+              <img src="/images/Post.png" alt="Post" />
+              <Mongo />
+              <Sass />
+              <Tailwind />
+              <Figma />
+              <Cypress />
+              <Storybook />
+              <Git />
+            </div>
+          </div>
         </div>
 
         {/* EXPERIENCE */}
