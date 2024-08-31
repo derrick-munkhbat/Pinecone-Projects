@@ -6,15 +6,13 @@ import { ThemeChanger } from "./ThemeChanger";
 export function Header() {
   return (
     <div className="border-2 rounded flex justify-between p-4 items-center dark:white">
-      <div className="dark:fill-slate-300">
-        <Logo />
-      </div>
+      <Logo />
 
       <MainMenu items={menuItems} />
       <div className="hidden lg:flex gap-5 items-center">
         <ThemeChanger />
         <a
-          href="./derrick-fullstack-developer.pdf"
+          href="./images/profile-portrait.jpg"
           download
           className="bg-black text-white rounded p-0 px-4 py-2 dark:bg-white dark:text-black"
         >
