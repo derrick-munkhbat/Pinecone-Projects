@@ -10,7 +10,7 @@ export function Date() {
   return (
     <div className="flex gap-3">
       <div>
-        <label htmlFor="date">date</label>
+        <label htmlhtmlFor="date">date</label>
         <div className="flex text-lg mb-10 border-black border rounded">
           <DatePicker
             selected={startDate}
@@ -20,7 +20,7 @@ export function Date() {
       </div>
 
       <div>
-        <label htmlFor="date">time</label>
+        <label htmlhtmlFor="date">time</label>
         <div className="text-lg mb-10 border-black border rounded flex">
           <DatePicker
             selected={startDate}
@@ -29,7 +29,7 @@ export function Date() {
             showTimeSelectOnly
             timeIntervals={15}
             timeCaption="Time"
-            dateFormat="h:mm aa"
+            datehtmlFormat="h:mm aa"
           />
         </div>
       </div>

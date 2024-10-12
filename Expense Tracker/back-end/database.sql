@@ -12,7 +12,7 @@ create table transactions (
     id: VARCHARD(21),
     amount: MONEY,
     date: TIMESTAMP,
-    category_id: VARCHARD(21) FOREIGN KEY REFENCES categories(id)
+    category_id: VARCHARD(21) htmlForEIGN KEY REFENCES categories(id)
 )
 
 

@@ -3,7 +3,7 @@ import axios from "axios";
 import { Date } from "./DatePicker";
 import { Toggle } from "./Toggle";
 
-export function Form() {
+export function htmlForm() {
   const [amount, setAmount] = useState(0);
   const handleAmountChange = (event) => {
     setAmount(event.target.value);
@@ -24,7 +24,7 @@ export function Form() {
     <div className=" bg-blue-500 card mx-auto text-center">
       <h2 className="text-3xl font-semibold text-gray-800">Add Record</h2>
 
-      <form
+      <htmlForm
         //  onSubmit={handleSubmit}
         className="flex bg-white p-6 rounded shadow-md gap-5 justify-center"
       >
@@ -35,7 +35,7 @@ export function Form() {
 
           <div className="mb-4">
             <label
-              htmlFor="amount"
+              htmlhtmlFor="amount"
               className="block text-gray-700 font-bold mb-2"
             >
               Amount
@@ -55,7 +55,7 @@ export function Form() {
 
           <div className="mb-4">
             <label
-              htmlFor="category"
+              htmlhtmlFor="category"
               className="block text-gray-700 font-bold mb-2"
             >
               Category
@@ -81,7 +81,7 @@ export function Form() {
 
           <div>
             <label
-              htmlFor="date"
+              htmlhtmlFor="date"
               className="block text-gray-700 font-bold mb-2"
             >
               Choose date & time
@@ -105,7 +105,7 @@ export function Form() {
         <div>
           <div className="mb-4">
             <label
-              htmlFor="payee"
+              htmlhtmlFor="payee"
               className="block text-gray-700 font-bold mb-2"
             >
               Payee
@@ -120,7 +120,7 @@ export function Form() {
           </div>
           <div>
             <label
-              htmlFor="payee"
+              htmlhtmlFor="payee"
               className="block text-gray-700 font-bold mb-2"
             >
               Notes
@@ -134,7 +134,7 @@ export function Form() {
             ></textarea>
           </div>
         </div>
-      </form>
+      </htmlForm>
     </div>
   );
 }

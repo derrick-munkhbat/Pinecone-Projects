@@ -1,14 +1,14 @@
 import axios from "axios";
 import React, { useState } from "react";
 
-export default function Signup() {
+export default function SignUp() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   // const [confirmPassword, setConfirmPassword] = useState("");
 
   const createNewUser = (e) => {
-    console.log({name, email, password})
+    console.log({ name, email, password });
     e.preventDefault();
     // if (password !== confirmPassword) {
     //   alert("Passwords do not match.");

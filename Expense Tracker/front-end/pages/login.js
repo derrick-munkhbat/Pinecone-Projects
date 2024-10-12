@@ -16,7 +16,7 @@ export default function Login() {
       .then(() => {
         alert("Success");
         localStorage.setItem("login", `${email}:${password}`);
-        window.location.href='/records';
+        window.location.href = "/records";
       })
       .catch((e) => {
         if (e.response.status === 401) {

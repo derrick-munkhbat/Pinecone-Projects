@@ -82,7 +82,7 @@ export function RightBar() {
         ))}
       </div>
 
-      {/* FORM */}
+      {/* htmlForM */}
       {isShowModal && (
         <div className="absolute bg-blue-500 card mx-auto text-center">
           <h2 className="text-3xl font-semibold text-gray-800">Add Record</h2>
@@ -93,7 +93,7 @@ export function RightBar() {
                 {/* TOGGLE */}
                 <div className="flex items-center mb-4">
                   <label
-                    htmlFor="expense-toggle"
+                    htmlhtmlFor="expense-toggle"
                     className="block text-gray-700 font-bold p-5"
                   >
                     Expense
@@ -116,7 +116,7 @@ export function RightBar() {
                     ></div>
                   </div>
                   <label
-                    htmlFor="income-toggle"
+                    htmlhtmlFor="income-toggle"
                     className="block text-gray-700 font-bold p-5"
                   >
                     Income
@@ -131,7 +131,7 @@ export function RightBar() {
 
               <div className="mb-4">
                 <label
-                  htmlFor="amount"
+                  htmlhtmlFor="amount"
                   className="block text-gray-700 font-bold mb-2"
                 >
                   Amount
@@ -164,7 +164,7 @@ export function RightBar() {
 
               <div>
                 <label
-                  htmlFor="date"
+                  htmlhtmlFor="date"
                   className="block text-gray-700 font-bold mb-2"
                 >
                   Choose date & time
@@ -191,7 +191,7 @@ export function RightBar() {
             <div>
               <div className="mb-4">
                 <label
-                  htmlFor="payee"
+                  htmlhtmlFor="payee"
                   className="block text-gray-700 font-bold mb-2"
                 >
                   Payee
@@ -206,7 +206,7 @@ export function RightBar() {
               </div>
               <div>
                 <label
-                  htmlFor="payee"
+                  htmlhtmlFor="payee"
                   className="block text-gray-700 font-bold mb-2"
                 >
                   Notes
