@@ -4,7 +4,7 @@
 }
 
 body {
-  background-color: rgb(255, 182, 127);
+  background-color: rgba(174, 169, 169, 0.348);
   margin: 0;
 }
 
@@ -106,7 +106,7 @@ body {
   padding: 5px;
   gap: 5px;
   margin: 0 auto;
-  background-color: aquamarine;
+  background-color: white;
   justify-content: center;
 }
 
@@ -201,7 +201,7 @@ body {
   width: 1180px;
   height: 385px;
   margin: 0 auto;
-  background-color: aquamarine;
+  background-color: white;
   padding: 5px;
   gap: 5px;
   justify-content: center;
@@ -280,7 +280,7 @@ body {
   margin: 0 auto;
   align-items: center;
   justify-content: center;
-  background-color: aquamarine;
+  background-color: white;
   padding: 5px;
   gap: 5px;
 }
@@ -505,7 +505,7 @@ body {
 /*START STORIES SECTION */
 
 .story-section {
-  background-color: aquamarine;
+  background-color: white;
   height: 377px;
   width: 1180px;
   margin: 0 auto;
@@ -586,7 +586,7 @@ body {
 
 .news-section {
   display: flex;
-  background-color: aquamarine;
+  background-color: white;
   width: 1180px;
   margin: 0 auto;
   height: 3160px;
@@ -948,7 +948,7 @@ body {
   flex-direction: column;
   width: 1180px;
   margin: 0 auto;
-  background-color: aquamarine;
+  background-color: white;
   padding: 5px;
 }
 
@@ -1059,7 +1059,7 @@ body {
 fashion container */
 
 .fashion-section {
-  background-color: aquamarine;
+  background-color: white;
   height: 377px;
   width: 1180px;
   margin: 0 auto;
@@ -1090,7 +1090,7 @@ fashion container */
 tech container */
 
 .tech-section {
-  background-color: aquamarine;
+  background-color: white;
   height: 377px;
   width: 1180px;
   margin: 0 auto;
@@ -1114,7 +1114,7 @@ tech container */
 comic container */
 
 .comic-section {
-  background-color: aquamarine;
+  background-color: white;
   height: 550px;
   width: 1180px;
   margin: 0 auto;
@@ -1211,7 +1211,7 @@ watch container */
 
 .footer-top {
   display: flex;
-  background-color: aquamarine;
+  background-color: white;
   padding: 10px;
 }
 
@@ -1249,7 +1249,7 @@ watch container */
 .footer-bottom {
   display: flex;
   padding: 5px;
-  background-color: aquamarine;
+  background-color: white;
 }
 
 .footer-year {
